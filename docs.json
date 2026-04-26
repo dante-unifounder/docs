@@ -19,24 +19,16 @@
               {
                 "group": "Playbooks",
                 "pages": [
-                  "growth/playbooks/index",
-                  "growth/playbooks/how-paperclip-is-changing-the-game-for-solo-founders",
                   "growth/en/playbooks/multilingual-seo-architecture-in-mintlify-using-gemini-and-claude"
                 ]
               },
               {
                 "group": "Guidelines",
-                "pages": [
-                  "growth/guidelines/index",
-                  "growth/guidelines/manual-editorial-qa-checklist",
-                  "growth/guidelines/no-open-loop-ai-content-systems"
-                ]
+                "pages": []
               },
               {
                 "group": "Content",
-                "pages": [
-                  "growth/content/index"
-                ]
+                "pages": []
               },
               {
                 "group": "Start here",
