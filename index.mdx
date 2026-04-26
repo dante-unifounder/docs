@@ -1,133 +1,59 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
-icon: 'star'
+title: "Growth engine"
+description: "El source of truth para playbooks, guidelines y content pieces que salen del recording workflow."
+icon: "sparkles"
 ---
 
-## Setting up
+## Qué vive acá
 
-Get your documentation site up and running in minutes.
-
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
-
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
+Esta base existe para una sola cosa: convertir material bruto en activos de growth publicables sin depender de memoria tribal ni de commits ciegos a `main`.
 
 <Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+  <Card title="Operator workflow" icon="list-checks" href="/growth/operator-workflow">
+    El flujo operativo para revisar, validar y mergear contenido sin romper la navegación pública.
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
+  <Card title="Editorial contract" icon="file-check" href="/growth/editorial-contract">
+    El contrato explícito que define metadata, estructura y file paths para cada tipo de entry.
   </Card>
 </Columns>
 
-## Create beautiful pages
+## Los tres rails públicos
 
-Everything you need to create world-class documentation.
-
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
+<Columns cols={3}>
+  <Card title="Playbooks" icon="rocket" href="/growth/playbooks/index">
+    How-tos accionables con pasos, prerequisitos y errores comunes.
   </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
+  <Card title="Guidelines" icon="compass" href="/growth/guidelines/index">
+    Principios editoriales o de ejecución que fijan criterio.
   </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
+  <Card title="Content" icon="book-open" href="/growth/content/index">
+    Piezas narrativas y educativas listas para distribución.
   </Card>
 </Columns>
 
-## Make your content agent ready
+## Cómo se publica sin improvisar
 
-Make your docs work for humans and AI agents alike.
+<Steps>
+  <Step title="Curá los moments con criterio">
+    Elegí el material fuente en `content-creation-recording`. Si los moments no
+    sostienen una pieza pública, no fuerces el draft.
+  </Step>
+  <Step title="Generá y editá el MDX">
+    Ajustá el texto hasta que cumpla el contrato editorial completo. La app no
+    publica placeholders, URLs locales ni headings faltantes.
+  </Step>
+  <Step title="Corré el preflight">
+    Validá metadata, secciones obligatorias, path final y la mutación de
+    `docs.json` antes de abrir la branch de review.
+  </Step>
+  <Step title="Abrí el compare y mergeá">
+    La app crea una branch de review. Inspeccioná el diff, confirmá la
+    navegación y mergeá sólo cuando el cambio esté limpio.
+  </Step>
+</Steps>
 
-<Columns cols={2}>
-  <Card
-    title="Prompt component"
-    icon="robot"
-    href="/agent-ready/prompt"
-  >
-    Embed shareable AI prompts readers can copy or open in Cursor.
-  </Card>
-  <Card
-    title="Visibility"
-    icon="eye"
-    href="/agent-ready/visibility"
-  >
-    Show different content to humans and agents reading your docs.
-  </Card>
-  <Card
-    title="Contextual menu"
-    icon="bolt"
-    href="/agent-ready/contextual"
-  >
-    Give readers one-click access to Claude, ChatGPT, Cursor, and more.
-  </Card>
-  <Card
-    title="AI coding tools"
-    icon="wand-magic-sparkles"
-    href="/ai-tools/claude-code"
-  >
-    Set up Claude Code, Cursor, or Windsurf with Mintlify's skill.
-  </Card>
-</Columns>
+## Qué cambió con DAN-6
 
-## Need inspiration?
-
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+- La navegación pública ahora está anclada a un árbol explícito: `growth/playbooks`, `growth/guidelines` y `growth/content`.
+- El operador no publica a ciegas: primero valida, después abre una branch de review.
+- `docs.json` dejó de ser una suposición implícita del app. Ahora es un contrato documentado y estable.

@@ -1,0 +1,90 @@
+---
+title: "Editorial contract"
+description: "El contrato explícito entre la app de recordings y el repo de docs para playbooks, guidelines y content."
+icon: "file-check"
+---
+
+## Metadata obligatoria
+
+Toda entry pública tiene que empezar con frontmatter YAML y declarar:
+
+```yaml
+---
+title: "..."
+description: "..."
+icon: "..."
+---
+```
+
+## Reglas globales
+
+- Nada de placeholders (`TODO`, `[insertar ...]`).
+- Nada de URLs locales (`localhost`, `127.0.0.1`).
+- Nada de claims factuales que no estén sostenidos por los moments fuente.
+- Cada pieza vive en un path canónico y la navegación de `docs.json` la publica bajo su grupo correcto.
+
+## File paths canónicos
+
+- Playbooks: `growth/playbooks/<slug>.mdx`
+- Guidelines: `growth/guidelines/<slug>.mdx`
+- Content: `growth/content/<slug>.mdx`
+
+## Plantilla: playbook
+
+```mdx
+---
+title: "..."
+description: "..."
+icon: "rocket"
+---
+
+## ¿Qué problema resuelve?
+
+## Antes de empezar
+
+## Pasos
+
+## Errores comunes
+
+## Lo que aprendimos
+```
+
+## Plantilla: guideline
+
+```mdx
+---
+title: "..."
+description: "..."
+icon: "compass"
+---
+
+## La regla
+
+## Por qué
+
+## Cuándo aplica / cuándo no
+
+## Casos del archivo
+```
+
+## Plantilla: content
+
+```mdx
+---
+title: "..."
+description: "..."
+icon: "book-open"
+---
+
+## El contexto
+
+## Lo que probé / lo que vi
+
+## Lo que sale en limpio
+```
+
+## Por qué este contrato existe
+
+<Note>
+Antes de DAN-6, `docs.json` y la estructura on-disk eran una suposición difusa del app. Ahora son un contrato explícito: si una pieza no entra en este formato, el preflight la frena antes de abrir la branch de review.
+</Note>
