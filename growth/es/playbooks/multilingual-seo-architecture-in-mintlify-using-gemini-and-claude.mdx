@@ -1,0 +1,146 @@
+---
+title: "Arquitectura SEO Multilingüe en Mintlify con Gemini y Claude"
+description: "Cómo usar Gemini para diseñar la estrategia GEO/SEO — hreflang, consolidación de dominio, estructura de carpetas bilingüe — y luego pasar ese output directamente a un agente terminal de Claude para implementarlo en un repo de Mintlify, incluyendo corrección de bugs en componentes de Next.js mediante contexto visual con capturas de pantalla."
+icon: "rocket"
+assetType: "playbook"
+---
+
+## ¿Qué problema resuelve?
+
+Publicar documentación en un solo idioma deja una visibilidad de búsqueda significativa sobre la mesa — tanto para los rankings tradicionales de Google como para motores impulsados por IA como Perplexity, ChatGPT y Google AI Overviews. Este playbook muestra cómo diseñar una arquitectura de docs bilingüe en **Mintlify** (inglés + español) usando **Gemini** para la estrategia GEO/SEO de alto nivel, y luego pasar ese output de estrategia directamente a un agente terminal de **Claude** para implementarlo — incluyendo la corrección de bugs de límite entre `Server Component` y `Client Component` de **Next.js** que aparecen durante el proceso.
+
+La idea central: publicar contenido bilingüe bajo un único dominio con la inyección correcta de `hreflang` duplica la superficie para citación por IA e indexación orgánica, mientras que la consolidación de dominio preserva la autoridad compartida en lugar de dividirla entre subdominios. Como [explica translatepress.com](https://translatepress.com/subdomain-vs-subdirectory/), el contenido en subdirectorios se beneficia de toda la autoridad del dominio principal, facilitando el posicionamiento — en ambos idiomas.
+
+## Antes de empezar
+
+- Un repo de **Mintlify** ya inicializado con un `mint.json` funcional
+- Acceso a **Gemini** (gemini.google.com o API) para generar la estrategia
+- **Claude** corriendo como agente terminal (Claude Code CLI o equivalente) apuntando a tu repo
+- Proyecto **Node.js** / **Next.js** App Router si tenés componentes personalizados en el sitio de docs
+- Familiaridad básica con las etiquetas `hreflang` y archivos de configuración JSON
+- Herramienta de capturas de pantalla o atajo del sistema operativo — vas a pasar contexto visual de bugs directamente al agente
+
+## Pasos
+
+<Steps>
+  <Step title="Consultá a Gemini para una estrategia GEO/SEO bilingüe">
+    Empezá en **Gemini**, no en tu codebase. Escribile un prompt con tu intención de publicación exacta para que pueda razonar sobre las mejores prácticas antes de escribir cualquier código.
+
+    En el minuto `2:50`, el prompt utilizado fue:
+
+    ```
+    what will be the best practice for GEO and SEO if we want to publish
+    content in spanish and english in mintlify and create a growth strategy for it.
+    ```
+
+    **Gemini** devolvió dos recomendaciones arquitectónicas clave:
+
+    | Estrategia | Qué significa |
+    |---|---|
+    | **Domain Consolidation** | Mantener `/en/` y `/es/` como subdirectorios bajo un único dominio — no subdominios separados — para que toda la autoridad SEO se acumule en un solo lugar |
+    | **Hreflang Injection** | Agregar etiquetas `hreflang` (vía `mint.json` o un componente `<head>` personalizado) para que los motores de búsqueda sirvan la versión correcta del idioma y eviten penalizaciones por contenido duplicado |
+
+    [El 60% de los sitios multilingües tienen errores de hreflang](https://eastondev.com/blog/en/posts/dev/20251225-nextjs-i18n-seo/), lo que lleva a que se muestren versiones en el idioma incorrecto y a caídas en el ranking — hacer esto bien desde el principio importa.
+
+    El output de Gemini incluyó fragmentos JSON de ejemplo para `mint.json`. Copiá el texto completo de la respuesta — lo vas a usar textualmente en el siguiente paso.
+
+    <Tip>
+      GEO (Generative Engine Optimization) y SEO son complementarios acá. Los docs bilingües estructurados con forma de respuesta son [más fácilmente extraídos y sintetizados por motores de IA](https://hygraph.com/blog/geo-content-strategy-guide) como Perplexity y Google AI Overviews — lo que significa que tus páginas en español pueden ser citadas en consultas de IA en español de forma independiente a tus páginas en inglés.
+    </Tip>
+  </Step>
+
+  <Step title="Pegá el output de Gemini en el agente terminal de Claude">
+    En el minuto `5:00`, el dev pegó la respuesta completa de la estrategia de Gemini directamente en la terminal donde corría el agente de Claude, y luego ejecutó:
+
+    ```bash
+    /plan
+    ```
+
+    Este es el patrón de handoff: **Gemini** se encarga de la investigación amplia y el razonamiento arquitectónico; **Claude** se encarga de la implementación práctica en el repo. No le estás pidiendo a Claude que invente la estrategia SEO — le estás dando una especificación completamente razonada y le pedís que la ejecute.
+
+    Este flujo de pegado manual se corresponde directamente con lo que los profesionales describen como separación de roles en pipelines multi-modelo: [Gemini para análisis e investigación a gran escala, Claude como orquestador de implementación](https://dev.to/zaferdace/multi-model-ai-orchestration-for-software-development-how-i-ship-10x-faster-with-claude-codex-53l3). Una versión más automatizada usa un slash command `/gemini` para enrutar entre modelos sin salir de la terminal — pero el pegado manual logra el mismo resultado y no requiere configuración de herramientas adicionales.
+
+    Claude generó entonces un plan de implementación completo que incluía:
+    - Estructura de carpetas bilingüe (directorios `/en/`, `/es/` en el repo de Mintlify)
+    - Actualizaciones de `mint.json` para navegación y configuración de locale
+    - Estrategia de inyección de etiquetas `hreflang`
+  </Step>
+
+  <Step title="Corregí errores de límite Server/Client Component de Next.js mediante contexto visual">
+    Durante la implementación, apareció un error de `next/headers` en el navegador en el minuto `1:20`. Esto ocurre cuando un módulo que usa APIs del App Router de **Next.js** se importa en un contexto de Pages Router o Client Component.
+
+    ```bash
+    You're importing a module that depends on 'next/headers'. This API is only available
+    in Server Components in the App Router, but you are using it in the Pages Router.
+    ./lib/auth.ts (7:1)
+    ```
+
+    En lugar de depurar manualmente, el dev pasó tanto el texto del error como una **captura de pantalla** del bug visual al agente de Claude en la terminal:
+
+    ```
+    when i added a loom video through URL i got this error [Image #32]
+    ```
+
+    Un segundo prompt abordó un bug de estado en la UI — una barra de selección que siempre estaba visible en lugar de aparecer solo cuando se seleccionaban momentos:
+
+    ```
+    there is a bug on this UI, it is always present when it should be only
+    present when we select moments. please make sure you can fix it
+    it may be a state issue
+    ```
+
+    Claude resolvió ambos: la corrección de `next/headers` implicó mover el import al límite correcto de un Server Component; la corrección de la barra de selección fue un problema de inicialización de estado en React.
+
+    <Note>
+      Pasar una captura de pantalla junto al mensaje de error le da al agente contexto visual que los stack traces solos no proveen — especialmente para bugs de layout/estado donde el síntoma es posicional y no textual.
+    </Note>
+  </Step>
+
+  <Step title="Validá la estructura de carpetas bilingüe y la configuración de hreflang">
+    Después de que Claude aplica el plan de implementación, verificá dos cosas manualmente:
+
+    **1. Estructura de carpetas**
+    ```
+    docs/
+    ├── en/
+    │   └── getting-started.mdx
+    └── es/
+        └── getting-started.mdx
+    ```
+
+    **2. Entradas de hreflang en `mint.json`** — confirmá que cada par de páginas esté vinculado bidireccionalmente. Una configuración correcta se ve así:
+
+    ```json
+    {
+      "anchors": [],
+      "navigation": [...],
+      "i18n": {
+        "languages": ["en", "es"],
+        "defaultLanguage": "en"
+      }
+    }
+    ```
+
+    Ejecutá el servidor de desarrollo de Mintlify y confirmá que ambas rutas de idioma se resuelven sin errores 404 antes de hacer el merge.
+  </Step>
+</Steps>
+
+## Errores comunes
+
+<Warning>
+**`next/headers` en Client Components** — Si tu repo de Mintlify usa componentes personalizados de Next.js, cualquier archivo que importe desde `next/headers`, `next/cookies` o APIs similares del App Router se romperá si se renderiza en un Client Component o en el contexto del Pages Router. La solución es mover esa lógica a un Server Component dedicado y pasar los datos hacia abajo como props.
+
+**Mala configuración de hreflang** — Omitir la etiqueta recíproca es el error más común: si `/en/page` declara `hreflang="es"` apuntando a `/es/page`, entonces `/es/page` también debe declarar `hreflang="en"` apuntando de vuelta. Las etiquetas unidireccionales son ignoradas por Google.
+
+**Confusión entre subdominio y subdirectorio** — Usar `es.yourdomain.com` en lugar de `yourdomain.com/es/` divide la autoridad del dominio en dos. La recomendación de Gemini de Domain Consolidation (subdirectorio) es la decisión correcta para un sitio de docs que todavía no tiene autoridad de subdominio independiente.
+
+**Pegar el output parcial de Gemini** — El handoff solo funciona si Claude recibe el texto completo de la estrategia. El contexto truncado produce planes de implementación incompletos. Copiá toda la respuesta de Gemini antes de cambiar a la terminal.
+</Warning>
+
+## Lo que aprendimos
+
+**1. Gemini → Claude como pipeline de dos etapas es más rápido que el prompting con un solo modelo.** Pedirle a un modelo que diseñe una arquitectura SEO y que la implemente en un repo específico produce resultados mediocres en ambas tareas. Dividir el trabajo — Gemini para la estrategia, Claude para la implementación — produjo un plan concreto y listo para el repo en una sola invocación de `/plan` (minuto `5:00`).
+
+**2. El contexto visual colapsa el ciclo de reporte de bugs.** El error de `next/headers` y el bug de la barra de selección en la UI fueron resueltos por el agente sin que el dev tocara el código manualmente. Pasar una captura de pantalla junto al mensaje de error en el minuto `1:20` le dio a Claude suficiente contexto visual y textual para identificar las causas raíz que los stack traces solos no hubieran revelado.
+
+**3. Los docs bilingües en Mintlify son un multiplicador GEO, no solo SEO.** El razonamiento planteado en el minuto `2:50` — más visibilidad, más awareness, más volumen — aplica igualmente a las respuestas generadas por IA. Los docs bilingües estructurados bajo un único dominio significan que tu contenido puede ser citado tanto en AI Overviews en inglés como en español de forma independiente, duplicando la superficie de citación sin duplicar el costo de autoridad de dominio.

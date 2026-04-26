@@ -17,23 +17,18 @@
             "tab": "Growth",
             "groups": [
               {
-                "group": "Start here",
-                "pages": [
-                  "index",
-                  "growth/operator-workflow",
-                  "growth/editorial-contract"
-                ]
-              },
-              {
                 "group": "Playbooks",
                 "pages": [
+                  "growth/en/playbooks/index",
                   "growth/playbooks/index",
-                  "growth/playbooks/how-paperclip-is-changing-the-game-for-solo-founders"
+                  "growth/playbooks/how-paperclip-is-changing-the-game-for-solo-founders",
+                  "growth/en/playbooks/multilingual-seo-architecture-in-mintlify-using-gemini-and-claude"
                 ]
               },
               {
                 "group": "Guidelines",
                 "pages": [
+                  "growth/en/guidelines/index",
                   "growth/guidelines/index",
                   "growth/guidelines/manual-editorial-qa-checklist",
                   "growth/guidelines/no-open-loop-ai-content-systems"
@@ -42,7 +37,16 @@
               {
                 "group": "Content",
                 "pages": [
+                  "growth/en/content/index",
                   "growth/content/index"
+                ]
+              },
+              {
+                "group": "Start here",
+                "pages": [
+                  "index",
+                  "growth/operator-workflow",
+                  "growth/editorial-contract"
                 ]
               }
             ]
@@ -56,11 +60,26 @@
             "tab": "Growth",
             "groups": [
               {
-                "group": "Start here",
-                "pages": []
+                "group": "Playbooks",
+                "pages": [
+                  "growth/es/playbooks/index",
+                  "growth/es/playbooks/multilingual-seo-architecture-in-mintlify-using-gemini-and-claude"
+                ]
               },
               {
-                "group": "Playbooks",
+                "group": "Guías",
+                "pages": [
+                  "growth/es/guidelines/index"
+                ]
+              },
+              {
+                "group": "Contenido",
+                "pages": [
+                  "growth/es/content/index"
+                ]
+              },
+              {
+                "group": "Start here",
                 "pages": []
               },
               {
