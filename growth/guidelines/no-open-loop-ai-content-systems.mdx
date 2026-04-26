@@ -1,0 +1,57 @@
+---
+title: "No armes un sistema de contenido con IA en open loop"
+description: "Cómo evitar que tus agentes generen planes lindos pero inútiles cuando no conectás fuente, publish y feedback."
+icon: "compass"
+---
+
+## La regla
+
+No le pidas a un agente que "publique contenido" si no puede responder tres cosas antes de arrancar: de qué fuente sale, dónde se publica y qué señal vuelve después del publish. Si una de esas piezas falta, no tenés un sistema de contenido. Tenés un open loop.
+
+## Por qué
+
+Los LLM generan planes convincentes con demasiada facilidad. El problema aparece cuando el plan llega a tareas vacías como "Publish post" sin tema, sin material fuente y sin una ruta clara hacia feedback real. Ahí la IA produce artefactos genéricos y vos seguís resolviendo a mano la parte difícil.
+
+Un loop de contenido recién se cierra cuando conectás cuatro capas:
+
+- fuente real
+- criterio editorial
+- publish real
+- señal de resultado
+
+Usar `LLM-as-a-judge` mejora la calidad del draft, pero no reemplaza el sistema. La mejora real aparece cuando partís de contexto propio, publicás en un destino canónico y medís qué pasó después.
+
+## Cuándo aplica / cuándo no
+
+Usalo:
+
+- Cuando diseñás un pipeline de contenido con agentes desde cero
+- Cuando querés convertir grabaciones de trabajo real en assets publicables
+- Cuando tenés pocas señales de mercado y no podés darte el lujo de publicar piezas genéricas
+
+No confundas esto con:
+
+- Un prompt mejor escrito
+- Una segunda llamada al modelo para "evaluar" el output
+- Una arquitectura grande que todavía no conecta con distribución ni feedback
+
+### Señales de que seguís en open loop
+
+- El plan dice `Publish post`, pero nadie puede explicar con qué fuente se escribe
+- No podés trazar el camino entre sesión, moments, asset y URL final
+- El publish existe, pero no sabés qué KPI mirar después
+- El sistema optimiza infraestructura antes de resolver el valor editorial
+
+### Cómo cerrarlo
+
+- Usá screen recordings, sesiones o material propio como seed de contexto
+- Elegí moments que sostengan una sola idea antes de pedir un draft
+- Definí un destino canónico de publicación como `growth.dante.id`
+- Adjuntá una hipótesis de activación en `Unifounder` a cada asset
+- Revisá el feedback real después del publish y no solo la calidad del texto
+
+## Casos del archivo
+
+- En una sesión de revisión de `Unifounder`, el plan generado por IA proponía tareas como "Publish post" sin explicar de qué iba a escribir ni cómo se conectaba eso con una fuente confiable.
+- La misma sesión mostró una mejor dirección: usar screen recordings como seed de contexto para evitar el arranque en frío y sacar insights desde trabajo real, no desde prompts inventados.
+- También apareció un patrón útil pero insuficiente por sí solo: `LLM-as-a-judge`. Sirve para reframing y control de calidad, pero no cierra el loop si el sistema no llega a publish real ni vuelve con una señal medible.
