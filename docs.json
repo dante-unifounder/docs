@@ -70,6 +70,17 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Growth",
+        "groups": [
+          {
+            "group": "Playbooks",
+            "pages": [
+              "growth/playbooks/how-paperclip-is-changing-the-game-for-solo-founders"
+            ]
+          }
+        ]
       }
     ],
     "global": {
@@ -106,15 +117,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
