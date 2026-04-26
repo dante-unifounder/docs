@@ -79,6 +79,12 @@
             "pages": [
               "growth/playbooks/how-paperclip-is-changing-the-game-for-solo-founders"
             ]
+          },
+          {
+            "group": "Guidelines",
+            "pages": [
+              "growth/guidelines/manual-editorial-qa-checklist"
+            ]
           }
         ]
       }
