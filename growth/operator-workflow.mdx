@@ -15,7 +15,7 @@ El operador tiene que poder convertir recordings en assets publicables sin empuj
     El draft no corrige falta de evidencia. Si los moments no explican el tema con claridad, volvé al workspace y curá mejor la base.
   </Step>
   <Step title="Generá el draft en la app">
-    Elegí si la pieza es `playbook`, `guideline` o `content`. Definí un título claro y usá el draft generado como punto de partida, no como versión final.
+    Elegí si la pieza es `playbook`, `guideline` o `content`. Completá la metadata mínima (`title`, `description`, `icon`, `assetType`, `sourceUrl`) y usá el draft generado como punto de partida, no como versión final.
   </Step>
   <Step title="Editá el MDX hasta cumplir el contrato">
     Revisá frontmatter, headings obligatorias, tono y precisión factual. La source of truth es el MDX final que vas a validar, no los campos auxiliares del formulario.
@@ -23,20 +23,20 @@ El operador tiene que poder convertir recordings en assets publicables sin empuj
   <Step title="Corré “Validar draft”">
     El preflight verifica cuatro cosas:
 
-    - metadata obligatoria (`title`, `description`, `icon`)
+    - metadata obligatoria (`title`, `description`, `icon`, `assetType`, `sourceUrl`)
     - headings requeridas por tipo
-    - ausencia de placeholders o URLs locales
+    - ausencia de placeholders o URLs locales/dev en body y frontmatter
     - path final y mutación esperada de `docs.json`
   </Step>
   <Step title="Abrí la branch de review">
-    La app crea una branch dedicada y devuelve el compare de GitHub. Ese compare es el review surface obligatorio antes del merge.
+    La app crea una branch dedicada y devuelve el compare de GitHub. Ese compare es el review surface obligatorio antes del merge. Si no hay diff para inspeccionar, no hay publish seguro.
   </Step>
   <Step title="Inspeccioná y mergeá">
     Antes de mergear, confirmá:
 
     - que el archivo cae en el rail correcto (`growth/playbooks`, `growth/guidelines` o `growth/content`)
     - que `docs.json` no movió páginas fuera de su grupo
-    - que no aparecen strings accidentales del navegador, logs o URLs locales
+    - que no aparecen strings accidentales del navegador, logs ni URLs locales/dev en `sourceUrl` o en el cuerpo
   </Step>
 </Steps>
 

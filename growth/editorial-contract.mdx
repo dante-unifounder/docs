@@ -13,13 +13,18 @@ Toda entry pública tiene que empezar con frontmatter YAML y declarar:
 title: "..."
 description: "..."
 icon: "..."
+assetType: "playbook | guideline | content"
+sourceUrl: "https://..."
 ---
 ```
+
+- `assetType` fija el rail público donde vive la pieza.
+- `sourceUrl` tiene que ser la URL canónica pública del material que disparó el asset.
 
 ## Reglas globales
 
 - Nada de placeholders (`TODO`, `[insertar ...]`).
-- Nada de URLs locales (`localhost`, `127.0.0.1`).
+- Nada de URLs locales o privadas (`localhost`, `127.0.0.1`, `0.0.0.0`, rangos `10.x` / `172.16-31.x` / `192.168.x`, `*.local`, `*.internal`).
 - Nada de claims factuales que no estén sostenidos por los moments fuente.
 - Cada pieza vive en un path canónico y la navegación de `docs.json` la publica bajo su grupo correcto.
 
@@ -36,6 +41,8 @@ icon: "..."
 title: "..."
 description: "..."
 icon: "rocket"
+assetType: "playbook"
+sourceUrl: "https://..."
 ---
 
 ## ¿Qué problema resuelve?
@@ -56,6 +63,8 @@ icon: "rocket"
 title: "..."
 description: "..."
 icon: "compass"
+assetType: "guideline"
+sourceUrl: "https://..."
 ---
 
 ## La regla
@@ -74,6 +83,8 @@ icon: "compass"
 title: "..."
 description: "..."
 icon: "book-open"
+assetType: "content"
+sourceUrl: "https://..."
 ---
 
 ## El contexto
@@ -86,5 +97,5 @@ icon: "book-open"
 ## Por qué este contrato existe
 
 <Note>
-Antes de DAN-6, `docs.json` y la estructura on-disk eran una suposición difusa del app. Ahora son un contrato explícito: si una pieza no entra en este formato, el preflight la frena antes de abrir la branch de review.
+Antes de este bootstrap, `docs.json` y la estructura on-disk eran una suposición difusa del app. Ahora son un contrato explícito: si una pieza no entra en este formato, el preflight la frena antes de abrir la branch de review.
 </Note>
