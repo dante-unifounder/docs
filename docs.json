@@ -9,37 +9,68 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Growth",
-        "groups": [
+        "language": "en",
+        "tabs": [
           {
-            "group": "Start here",
-            "pages": [
-              "index",
-              "growth/operator-workflow",
-              "growth/editorial-contract"
+            "tab": "Growth",
+            "groups": [
+              {
+                "group": "Start here",
+                "pages": [
+                  "index",
+                  "growth/operator-workflow",
+                  "growth/editorial-contract"
+                ]
+              },
+              {
+                "group": "Playbooks",
+                "pages": [
+                  "growth/playbooks/index",
+                  "growth/playbooks/how-paperclip-is-changing-the-game-for-solo-founders"
+                ]
+              },
+              {
+                "group": "Guidelines",
+                "pages": [
+                  "growth/guidelines/index",
+                  "growth/guidelines/manual-editorial-qa-checklist",
+                  "growth/guidelines/no-open-loop-ai-content-systems"
+                ]
+              },
+              {
+                "group": "Content",
+                "pages": [
+                  "growth/content/index"
+                ]
+              }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "language": "es",
+        "tabs": [
           {
-            "group": "Playbooks",
-            "pages": [
-              "growth/playbooks/index",
-              "growth/playbooks/how-paperclip-is-changing-the-game-for-solo-founders"
-            ]
-          },
-          {
-            "group": "Guidelines",
-            "pages": [
-              "growth/guidelines/index",
-              "growth/guidelines/manual-editorial-qa-checklist",
-              "growth/guidelines/no-open-loop-ai-content-systems"
-            ]
-          },
-          {
-            "group": "Content",
-            "pages": [
-              "growth/content/index"
+            "tab": "Growth",
+            "groups": [
+              {
+                "group": "Start here",
+                "pages": []
+              },
+              {
+                "group": "Playbooks",
+                "pages": []
+              },
+              {
+                "group": "Guidelines",
+                "pages": []
+              },
+              {
+                "group": "Content",
+                "pages": []
+              }
             ]
           }
         ]
