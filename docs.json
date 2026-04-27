@@ -29,7 +29,9 @@
               },
               {
                 "group": "Content",
-                "pages": []
+                "pages": [
+                  "growth/en/content/warp-oz-turns-a-rust-terminal-into-an-agentic-development-environment"
+                ]
               },
               {
                 "group": "Start here",
@@ -62,7 +64,9 @@
               },
               {
                 "group": "Contenido",
-                "pages": []
+                "pages": [
+                  "growth/es/content/warp-oz-turns-a-rust-terminal-into-an-agentic-development-environment"
+                ]
               },
               {
                 "group": "Start here",
