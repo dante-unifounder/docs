@@ -273,5 +273,94 @@
         "keywords": []
       }
     ]
+  },
+  "growth/en/guidelines/ai-social-media-voice-training-doubles-ctr": {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Voice Training Is the Variable That Makes AI Social Media Tools Actually Work",
+    "name": "Voice Training Is the Variable That Makes AI Social Media Tools Actually Work",
+    "description": "Why the gap between a generic AI content plan and a voice-trained one is the difference between 1.2% and 2.6% CTR — and what SaaS content teams need to do about it.",
+    "inLanguage": "en",
+    "url": "https://growth.dante.id/growth/en/guidelines/ai-social-media-voice-training-doubles-ctr",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://growth.dante.id/growth/en/guidelines/ai-social-media-voice-training-doubles-ctr"
+    },
+    "datePublished": "2026-04-27T23:16:21.399Z",
+    "dateModified": "2026-04-27T23:16:21.399Z",
+    "author": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "keywords": "Optimizely",
+    "citation": [
+      {
+        "@type": "Quotation",
+        "text": "Maya's candle shop: $79 no-voice-training plan → 1.2% CTR. Switched to $149 professional with voice training → 2.6% CTR in 2 weeks.",
+        "about": "Switching from a $79 no-voice-training AI plan to a $149 professional plan doubled CTR from 1.2% to 2.6% in 2 weeks",
+        "description": "Concrete before/after numbers with a specific dollar cost and a tight 2-week timeframe. This is the kind of ROI proof point that stops scrolling on LinkedIn and Twitter. The implication — that voice training is not a nice-to-have but a CTR multiplier — is actionable for any SaaS founder or content marketer evaluating AI tool tiers.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "Optimizely research: AI-driven timing recommendations boost reach up to 28%.",
+        "about": "AI-driven timing recommendations boost social media reach up to 28% — Optimizely research",
+        "description": "A named research source (Optimizely) with a specific percentage lift gives this credibility beyond generic advice. Reach is a universal KPI, making this broadly shareable across verticals.",
+        "keywords": [
+          "Optimizely"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "Teams combining disciplined testing + automated repurposing see 20%+ engagement lift over a month.",
+        "about": "Teams combining disciplined testing and automated repurposing see 20%+ engagement lift in a single month",
+        "description": "The combination of 'disciplined testing' and 'automated repurposing' as a paired system — not just one or the other — is a nuanced and actionable insight. The one-month timeframe makes it feel achievable and near-term for marketers justifying budget.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "KPI: avg saves per reel > 150. AI captions with 'Save for later' CTA + highlighted unique material → +22% saves in first month.",
+        "about": "Boutique kitchenware brand: AI captions with a 'Save for later' CTA beat the 20% save goal — +22% in month one",
+        "description": "A specific KPI (avg saves per reel > 150), a specific CTA strategy ('Save for later'), and a result that beat target by 2 points in month one. Useful for creators optimizing Instagram saves specifically.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "AI drafts from prompt + training data, you approve before publish... upload best-performing posts as training examples, set voice parameters (formal vs. casual).",
+        "about": "AI social media tools don't replace your scheduling workflow — they replace your blank-page paralysis",
+        "description": "Reframes the AI content tool category: the real value is upstream creative unblocking, not downstream automation. Challenges the 'full workflow replacement' narrative most vendors push.",
+        "keywords": []
+      }
+    ]
   }
 }
