@@ -187,5 +187,91 @@
         "keywords": []
       }
     ]
+  },
+  "growth/en/content/how-solo-founders-use-ai-to-compete-with-content-teams": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Solo Founders Use AI to Compete with Content Teams",
+    "name": "How Solo Founders Use AI to Compete with Content Teams",
+    "description": "Before you hire a content person, read the math. Solo founders now run 36.3% of new startups — and the ones winning on content aren't hiring, they're reframing.",
+    "inLanguage": "en",
+    "url": "https://growth.dante.id/growth/en/content/how-solo-founders-use-ai-to-compete-with-content-teams",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://growth.dante.id/growth/en/content/how-solo-founders-use-ai-to-compete-with-content-teams"
+    },
+    "datePublished": "2026-04-27T22:51:50.148Z",
+    "dateModified": "2026-04-27T22:51:50.148Z",
+    "author": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "citation": [
+      {
+        "@type": "Quotation",
+        "text": "The technical substance might be identical. The framing determines who reads it. 'How to optimize PostgreSQL queries' reaches practitioners at their desks, while 'Why Your Database Architecture Limits SaaS Scale' reaches budget-holding CTOs facing growth ceilings.",
+        "about": "The Technical Framing Trap: Same Content, Wrong Audience",
+        "description": "Names the exact failure mode of developer-facing content in one replicable rule — framing, not substance, selects the reader. Directly actionable: any existing entry can be retitled to reach a founder instead of a developer.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "A full AI stack covering code, content, customer support, design, and automation runs ~$300–500/month vs. $80,000–120,000/month for equivalent human functions once payroll, taxes, and coordination overhead are included.",
+        "about": "$300/Month vs. $120K/Month: The Real Cost of the Solo AI Stack",
+        "description": "The single most persuasive number for a solo founder evaluating whether to hire. Concrete, sourced, and shocking in its magnitude — makes the hire-vs-automate decision obvious.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "(technical capability) → (founder problem it solves) → (time saved or cost avoided) → (mission automated). Example: 'Agent orchestration' → 'You don't need a social media manager' → '3 hours/week → 15 minutes' → 'Content loop runs while you're building product'",
+        "about": "The Founder ROI Translation Formula",
+        "description": "A repeatable 4-step formula for turning any technical AI entry into founder-facing content. Directly applicable to retrofitting existing content with a 'what this means for your growth loop' layer.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "Founders are not asking 'how do I implement X?' — they're asking 'how do I get X outcome without hiring someone?' The metric shift: stop measuring traffic volume, start measuring lead quality and sales cycle compression.",
+        "about": "Founders Ask 'How Do I Get X Without Hiring?' — Not 'How Do I Implement X?'",
+        "description": "The sharpest articulation of the ICP mindset gap. Reframes the entire content brief: stop writing implementation guides, start writing outcome guides. Every piece of technical content that doesn't answer this question misses its buyer.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "Solo-founded ventures now comprise 36.3% of new companies (up from 23.7% in 2019). 44% of profitable SaaS products run by single founders — a figure that doubled since 2018.",
+        "about": "Solo Founders Now Outnumber Teams: 36.3% of New Startups Are One Person",
+        "description": "Reframes the ICP as the dominant archetype, not a niche. Makes the audience gap even more damning — developer-facing content is ignoring the majority of the early-stage founder market.",
+        "keywords": []
+      }
+    ]
   }
 }
