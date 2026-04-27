@@ -1,0 +1,28 @@
+# Dante Perea — growth.dante.id
+
+> Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.
+
+> Topics: AI agents, RAG, developer tools, multimodal LLMs, Next.js, Vercel, Mintlify
+
+## Playbooks
+
+- [Multilingual SEO Architecture in Mintlify Using Gemini and Claude](https://growth.dante.id/growth/en/playbooks/multilingual-seo-architecture-in-mintlify-using-gemini-and-claude): How to use Gemini for GEO/SEO strategy design — hreflang, domain consolidation, bilingual folder structure — then pipe that output directly into a Claude terminal agent to implement it in a Mintlify repo, including Next.js component bug fixes via screenshot context.
+- [Running Claude Code and AI Agents at Scale with Warp Oz](https://growth.dante.id/growth/en/playbooks/running-claude-code-and-ai-agents-at-scale-with-warp-oz): Warp Oz lets enterprises orchestrate hundreds of AI agents in parallel — including Claude Code and Codex — with cloud orchestration, on-prem execution, and agent-to-agent composition for complex engineering workflows.
+
+## Content
+
+- [Warp Oz turns a Rust terminal into an Agentic Development Environment](https://growth.dante.id/growth/en/content/warp-oz-turns-a-rust-terminal-into-an-agentic-development-environment): Warp is no longer just a fast terminal: with Warp Oz and cloud orchestration, it has evolved into an Agentic IDE targeting enterprise Telecom, AI-RAN, and the emerging VibeOps workflow.
+- [Warp Oz: Cloud Agent Orchestration Without Local Compute Limits](https://growth.dante.id/growth/en/content/warp-oz-cloud-agent-orchestration-without-local-compute-limits): Warp Oz repositions the terminal as a cloud orchestration layer, letting you run unlimited parallel AI agents on remote or self-hosted infra while bypassing local CPU, memory, and git checkout constraints.
+- [The B2A Economy Is Already Here — And Most Builders Are Optimizing for the Wrong Customer](https://growth.dante.id/growth/en/content/b2a-economy-agent-first-growth): AI agents drove 805% more traffic on Black Friday 2025 and influenced $67B in Cyber Week sales. The B2A economy is not a forecast — it is commerce that already happened. Here is what it means for builders.
+
+---
+
+## Playbooks
+
+- [Arquitectura SEO Multilingüe en Mintlify con Gemini y Claude](https://growth.dante.id/growth/es/playbooks/multilingual-seo-architecture-in-mintlify-using-gemini-and-claude): Cómo usar Gemini para diseñar la estrategia GEO/SEO — hreflang, consolidación de dominio, estructura de carpetas bilingüe — y luego pasar ese output directamente a un agente terminal de Claude para implementarlo en un repo de Mintlify, incluyendo corrección de bugs en componentes de Next.js mediante contexto visual con capturas de pantalla.
+- [Ejecutando Claude Code y agentes de IA a escala con Warp Oz](https://growth.dante.id/growth/es/playbooks/running-claude-code-and-ai-agents-at-scale-with-warp-oz): Warp Oz permite a las empresas orquestar cientos de agentes de IA en paralelo — incluyendo Claude Code y Codex — con orquestación en la nube, ejecución on-prem y composición agente-a-agente para flujos de trabajo de ingeniería complejos.
+
+## Contenido
+
+- [Warp Oz convierte una terminal en Rust en un Agentic Development Environment](https://growth.dante.id/growth/es/content/warp-oz-turns-a-rust-terminal-into-an-agentic-development-environment): Warp ya no es solo una terminal rápida: con Warp Oz y orquestación en la nube, evolucionó hacia un Agentic IDE orientado a Telecom enterprise, AI-RAN y el flujo de trabajo emergente de VibeOps.
+- [Warp Oz: Orquestación de Agentes en la Nube Sin Límites de Cómputo Local](https://growth.dante.id/growth/es/content/warp-oz-cloud-agent-orchestration-without-local-compute-limits): Warp Oz reposiciona la terminal como una capa de orquestación en la nube, permitiéndote correr agentes de IA paralelos e ilimitados en infraestructura remota o self-hosted, evitando las restricciones de CPU, memoria y git checkout locales.
