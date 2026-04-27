@@ -97,5 +97,95 @@
         ]
       }
     ]
+  },
+  "growth/en/content/content-os-missing-layer": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Creator OS Is Worth Millions — and It's Still a Kanban Board",
+    "name": "The Creator OS Is Worth Millions — and It's Still a Kanban Board",
+    "description": "The creator tools market solved brand consistency for companies and ignored individual human creators — and the feedback loop that would make content compound has never been built.",
+    "inLanguage": "en",
+    "url": "https://growth.dante.id/growth/en/content/content-os-missing-layer",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://growth.dante.id/growth/en/content/content-os-missing-layer"
+    },
+    "datePublished": "2026-04-27T20:40:53.831Z",
+    "dateModified": "2026-04-27T20:40:53.831Z",
+    "author": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "keywords": "Beehiiv, Claude, Coda, Copy.ai, Jasper, Quso.ai, Virlo",
+    "citation": [
+      {
+        "@type": "Quotation",
+        "text": "Justin Welsh's Content OS (Coda): the most-referenced creator system. A manual Kanban tracking ideas → drafts → published. No AI. He's sold millions in courses around it — validates massive demand for the system.",
+        "about": "Justin Welsh sold millions in courses for a system built on a manual Coda Kanban with no AI",
+        "description": "The biggest demand signal in creator tools is a Coda doc with no AI. That's not a technology story — it's a market structure story about unsolved demand.",
+        "keywords": [
+          "Coda"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "Jasper Brand Voice: in testing, 92% brand consistency vs. 68% with generic Claude. Jasper/Copy.ai are brand-oriented (companies), not creator-oriented (individual humans).",
+        "about": "Jasper hits 92% brand consistency vs 68% with generic Claude — but was built for companies, not creators",
+        "description": "The voice problem is solved for brand marketing. Individual human creators with accumulated thought libraries are not the imagined user of any existing tool.",
+        "keywords": [
+          "Jasper",
+          "Copy.ai",
+          "Claude"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "Zero tools close the loop between published entry performance and future moment extraction prioritization. No tool says 'your hot takes get 4x more engagement than atomic findings — here are the next 5 hot-take angles.' This is a completely open space.",
+        "about": "No tool closes the loop between content performance and what you capture next",
+        "description": "Creators feel this gap but can't articulate it precisely. Performance data and content creation live in separate systems that have never been introduced to each other.",
+        "keywords": [
+          "Beehiiv",
+          "Virlo",
+          "Quso.ai"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "No tool looks across a creator's existing moment library and says 'you've captured 6 moments on this topic — here's a 4-part thread series.' The compounding is entirely manual today. This is the biggest whitespace.",
+        "about": "Cross-library synthesis — 'you have 6 moments on this topic, here's a 4-part thread' — doesn't exist anywhere",
+        "description": "Content compounding is widely discussed but entirely manual in execution. The gap between the concept and the tooling is where the market opportunity lives.",
+        "keywords": []
+      }
+    ]
   }
 }
