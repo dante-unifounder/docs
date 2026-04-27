@@ -79,6 +79,19 @@
           }
         ]
       }
+    ],
+    "tabs": [
+      {
+        "tab": "Growth",
+        "groups": [
+          {
+            "group": "Content",
+            "pages": [
+              "growth/en/content/your-api-description-is-now-your-competitive-moat"
+            ]
+          }
+        ]
+      }
     ]
   },
   "navbar": {
