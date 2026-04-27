@@ -1,0 +1,888 @@
+# Dante Perea — growth.dante.id
+
+> Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.
+
+---
+
+# Multilingual SEO Architecture in Mintlify Using Gemini and Claude
+
+> How to use Gemini for GEO/SEO strategy design — hreflang, domain consolidation, bilingual folder structure — then pipe that output directly into a Claude terminal agent to implement it in a Mintlify repo, including Next.js component bug fixes via screenshot context.
+
+URL: https://growth.dante.id/growth/en/playbooks/multilingual-seo-architecture-in-mintlify-using-gemini-and-claude
+
+---
+title: "Multilingual SEO Architecture in Mintlify Using Gemini and Claude"
+description: "How to use Gemini for GEO/SEO strategy design — hreflang, domain consolidation, bilingual folder structure — then pipe that output directly into a Claude terminal agent to implement it in a Mintlify repo, including Next.js component bug fixes via screenshot context."
+icon: "rocket"
+assetType: "playbook"
+---
+
+## What problem does this solve?
+
+Publishing documentation in a single language leaves significant search visibility on the table — both for traditional Google rankings and for AI-powered engines like Perplexity, ChatGPT, and Google AI Overviews. This playbook shows how to design a bilingual **Mintlify** docs architecture (English + Spanish) using **Gemini** for high-level GEO/SEO strategy, then pipe that strategy output directly into a **Claude** terminal agent to implement it — including fixing **Next.js** `Server Component` / `Client Component` boundary bugs that surface during the process.
+
+The core insight: publishing bilingual content under a single domain with proper `hreflang` injection doubles the surface area for AI citation and organic indexing, while domain consolidation preserves shared authority rather than splitting it across subdomains. As [translatepress.com explains](https://translatepress.com/subdomain-vs-subdirectory/), subdirectory content benefits from the full authority of the main domain, making it easier to rank — in both languages.
+
+## Before you start
+
+- A **Mintlify** repo already initialized with a working `mint.json`
+- Access to **Gemini** (gemini.google.com or API) for strategy generation
+- **Claude** running as a terminal agent (Claude Code CLI or equivalent) pointed at your repo
+- **Node.js** / **Next.js** App Router project if you have custom components in the docs site
+- Basic familiarity with `hreflang` tags and JSON config files
+- Screenshots tool or OS screenshot shortcut — you'll pass visual bug context directly to the agent
+
+## Steps
+
+<Steps>
+  <Step title="Query Gemini for a bilingual GEO/SEO strategy">
+    Start in **Gemini**, not in your codebase. Prompt it with your exact publishing intent so it can reason about best practices before any code is written.
+
+    At `2:50`, the prompt used was:
+
+    ```
+    what will be the best practice for GEO and SEO if we want to publish
+    content in spanish and english in mintlify and create a growth strategy for it.
+    ```
+
+    **Gemini** returned two key architectural recommendations:
+
+    | Strategy | What it means |
+    |---|---|
+    | **Domain Consolidation** | Keep `/en/` and `/es/` as subdirectories under one domain — not separate subdomains — so all SEO authority accumulates in one place |
+    | **Hreflang Injection** | Add `hreflang` tags (via `mint.json` or a custom `<head>` component) so search engines serve the correct language version and avoid duplicate-content penalties |
+
+    [60% of multilingual sites have hreflang errors](https://eastondev.com/blog/en/posts/dev/20251225-nextjs-i18n-seo/), leading to wrong language versions being surfaced and ranking drops — getting this right from the start matters.
+
+    Gemini's output included example JSON snippets for `mint.json`. Copy the full response text — you'll use it verbatim in the next step.
+
+    <Tip>
+      GEO (Generative Engine Optimization) and SEO are complementary here. Structured, answer-shaped bilingual docs are [more easily extracted and synthesized by AI engines](https://hygraph.com/blog/geo-content-strategy-guide) like Perplexity and Google AI Overviews — meaning your Spanish-language pages can get cited in Spanish-language AI queries independently of your English pages.
+    </Tip>
+  </Step>
+
+  <Step title="Paste Gemini's output into the Claude terminal agent">
+    At `5:00`, the dev pasted Gemini's full strategy response directly into the terminal where the Claude agent was running, then issued:
+
+    ```bash
+    /plan
+    ```
+
+    This is the handoff pattern: **Gemini** handles broad research and architectural reasoning; **Claude** handles hands-on repo implementation. You're not asking Claude to invent the SEO strategy — you're giving it a fully-reasoned spec and asking it to execute.
+
+    This manual paste workflow maps directly to what practitioners describe as role-separation in multi-model pipelines: [Gemini for large-scale analysis and research, Claude as the implementation orchestrator](https://dev.to/zaferdace/multi-model-ai-orchestration-for-software-development-how-i-ship-10x-faster-with-claude-codex-53l3). A more automated version uses a `/gemini` slash command to route between models without leaving the terminal — but the manual paste achieves the same result and requires no extra tooling setup.
+
+    Claude then generated a full implementation plan covering:
+    - Bilingual folder structure (`/en/`, `/es/` directories in the Mintlify repo)
+    - `mint.json` updates for navigation and locale config
+    - `hreflang` tag injection strategy
+  </Step>
+
+  <Step title="Fix Next.js Server/Client Component boundary errors via screenshot context">
+    During implementation, a `next/headers` error surfaced in the browser at `1:20`. This happens when a module that uses **Next.js** App Router APIs gets imported into a Pages Router or Client Component context.
+
+    ```bash
+    You're importing a module that depends on 'next/headers'. This API is only available
+    in Server Components in the App Router, but you are using it in the Pages Router.
+    ./lib/auth.ts (7:1)
+    ```
+
+    Rather than debugging manually, the dev passed both the error text and a **screenshot** of the visual bug to the Claude agent in the terminal:
+
+    ```
+    when i added a loom video through URL i got this error [Image #32]
+    ```
+
+    A second prompt addressed a UI state bug — a selection bar that was always visible instead of appearing only when moments were selected:
+
+    ```
+    there is a bug on this UI, it is always present when it should be only
+    present when we select moments. please make sure you can fix it
+    it may be a state issue
+    ```
+
+    Claude resolved both: the `next/headers` fix involved moving the import to a proper Server Component boundary; the selection bar fix was a React state initialization issue.
+
+    <Note>
+      Passing a screenshot alongside the error message gives the agent visual context that stack traces alone don't provide — especially for layout/state bugs where the symptom is positional rather than textual.
+    </Note>
+  </Step>
+
+  <Step title="Validate the bilingual folder structure and hreflang config">
+    After Claude applies the implementation plan, verify two things manually:
+
+    **1. Folder structure**
+    ```
+    docs/
+    ├── en/
+    │   └── getting-started.mdx
+    └── es/
+        └── getting-started.mdx
+    ```
+
+    **2. `mint.json` hreflang entries** — confirm each page pair is linked bidirectionally. A correct setup looks like:
+
+    ```json
+    {
+      "anchors": [],
+      "navigation": [...],
+      "i18n": {
+        "languages": ["en", "es"],
+        "defaultLanguage": "en"
+      }
+    }
+    ```
+
+    Run the Mintlify dev server and confirm both language routes resolve without 404s before merging.
+  </Step>
+</Steps>
+
+## Common pitfalls
+
+<Warning>
+**`next/headers` in Client Components** — If your Mintlify repo uses custom Next.js components, any file that imports from `next/headers`, `next/cookies`, or similar App Router APIs will break if rendered in a Client Component or Pages Router context. The fix is to move that logic into a dedicated Server Component and pass data down as props.
+
+**Hreflang misconfiguration** — Missing the reciprocal tag is the most common error: if `/en/page` declares `hreflang="es"` pointing to `/es/page`, then `/es/page` must also declare `hreflang="en"` pointing back. One-directional tags are ignored by Google.
+
+**Subdomain vs. subdirectory confusion** — Using `es.yourdomain.com` instead of `yourdomain.com/es/` splits domain authority in two. Gemini's recommendation of Domain Consolidation (subdirectory) is the correct call for a docs site that doesn't yet have independent subdomain authority.
+
+**Pasting partial Gemini output** — The handoff only works if Claude receives the full strategy text. Truncated context produces incomplete implementation plans. Copy the entire Gemini response before switching to the terminal.
+</Warning>
+
+## What we learned
+
+**1. Gemini → Claude as a two-stage pipeline is faster than single-model prompting.** Asking one model to both design an SEO architecture and implement it in a specific repo produces mediocre results at both tasks. Splitting the work — Gemini for strategy, Claude for implementation — produced a concrete, repo-ready plan in one `/plan` invocation (`5:00`).
+
+**2. Screenshot context collapses the bug-report loop.** The `next/headers` error and the selection bar UI bug were both resolved by the agent without the dev touching the code manually. Passing a screenshot alongside the error message at `1:20` gave Claude enough visual + textual context to identify root causes that stack traces alone wouldn't surface.
+
+**3. Bilingual Mintlify docs are a GEO multiplier, not just an SEO one.** The rationale stated at `2:50` — more visibility, more awareness, more volume — applies equally to AI-generated answers. Structured bilingual docs under a single domain mean your content can be cited in both English and Spanish AI Overviews independently, doubling citation surface without doubling domain authority cost.
+
+---
+
+# Running Claude Code and AI Agents at Scale with Warp Oz
+
+> Warp Oz lets enterprises orchestrate hundreds of AI agents in parallel — including Claude Code and Codex — with cloud orchestration, on-prem execution, and agent-to-agent composition for complex engineering workflows.
+
+URL: https://growth.dante.id/growth/en/playbooks/running-claude-code-and-ai-agents-at-scale-with-warp-oz
+
+---
+title: "Running Claude Code and AI Agents at Scale with Warp Oz"
+description: "Warp Oz lets enterprises orchestrate hundreds of AI agents in parallel — including Claude Code and Codex — with cloud orchestration, on-prem execution, and agent-to-agent composition for complex engineering workflows."
+icon: "rocket"
+assetType: "playbook"
+---
+
+
+
+## What problem does this solve?
+
+Running AI coding agents on individual developer laptops — the default today with tools like **Cursor** or local **Claude Code** sessions — creates a hard ceiling on engineering throughput. **Warp Oz** breaks that ceiling by moving agent execution into the cloud, letting teams orchestrate hundreds of agents in parallel while keeping governance, observability, and data-privacy controls intact.
+
+For enterprises specifically, the blocker isn't capability — it's trust: sensitive code can't leave the perimeter. Oz addresses this by splitting the orchestrator (cloud-managed) from the execution environment (customer-managed infrastructure), so the two concerns never conflict.
+
+## Before you start
+
+- A **Warp** account with access to the **Warp Oz** orchestration layer
+- At least one CLI coding agent you want to scale: **Claude Code**, **Codex**, or **OpenCode**
+- Clarity on your execution boundary: cloud-only vs. hybrid (cloud orchestrator + on-prem runners)
+- For enterprise deployments: customer-managed infrastructure provisioned and reachable by the Oz orchestrator
+
+## Steps
+
+<Steps>
+  <Step title="Choose your execution model">
+    Decide whether agents will run fully in Warp's cloud or on your own infrastructure.
+
+    - **Cloud execution** — fastest to start; Oz manages the full lifecycle.
+    - **Hybrid / on-prem execution** — agents run inside your perimeter; the Oz orchestrator still handles lifecycle management and observability from the cloud. This is the recommended path for any team with data-residency requirements.
+
+    <Note>
+      The Oz orchestrator and the agent runner are intentionally decoupled. You can start with cloud execution and migrate runners on-prem later without changing your workflow definitions.
+    </Note>
+  </Step>
+
+  <Step title="Connect your CLI coding agents to Warp Oz">
+    **Claude Code**, **Codex**, and **OpenCode** all run natively inside Warp Oz. You don't replace these tools — you wrap them.
+
+    Oz adds a rich UI layer on top of each CLI agent session:
+
+    | Capability | What it gives you |
+    |---|---|
+    | Rich input | Structured prompts, file attachments, context injection |
+    | Notifications | Real-time status updates per agent session |
+    | Code review | Inline diff review without leaving the orchestrator |
+    | Remote session control | Pause, resume, or redirect any running agent session |
+
+    Connect an agent by selecting it from the Oz agent registry and pointing it at a target repo or task definition.
+  </Step>
+
+  <Step title="Scale to parallel agent execution">
+    Once a single agent session is working, Oz makes horizontal scale a configuration decision, not an infrastructure project.
+
+    - Define the task scope (e.g., "run this refactor across all 40 microservices").
+    - Set concurrency limits and resource quotas per agent.
+    - Launch: Oz spawns and manages hundreds of agent instances, each with its own lifecycle, logs, and output artifacts.
+
+    <Tip>
+      Start with a small fan-out (5–10 agents) on a non-critical repo to validate your task definition before scaling to hundreds.
+    </Tip>
+  </Step>
+
+  <Step title="Compose agents for multi-step workflows">
+    For complex engineering tasks, single-agent runs aren't enough. Oz supports **Agent Composition** — agents that call other specialized agents as sub-tasks, creating multi-step workflows from reusable building blocks.
+
+    Example pattern:
+
+    ```
+    Orchestrator agent
+    ├── calls → Security scanner agent (per service)
+    ├── calls → Test generator agent (per changed file)
+    └── calls → PR description agent (per branch)
+    ```
+
+    Define composition in your workflow config by specifying which agent types a parent agent is allowed to invoke and under what conditions. Oz handles routing, result aggregation, and failure handling across the graph.
+  </Step>
+
+  <Step title="Monitor and govern from the Oz dashboard">
+    Every agent session — whether running in Warp's cloud or on your own infrastructure — surfaces lifecycle events, logs, and outputs back to the Oz orchestrator.
+
+    - Review per-agent status in real time.
+    - Inspect code diffs before merging any agent-generated output.
+    - Use remote session control to intervene in a running session without killing it.
+  </Step>
+</Steps>
+
+## Common pitfalls
+
+<Warning>
+**Skipping the execution-boundary decision early.** If you start with cloud runners and later discover your security policy requires on-prem execution, migrating mid-project is painful. Lock down your execution model before writing any workflow definitions.
+
+**Over-composing agent graphs too soon.** Agent Composition is powerful, but a deeply nested agent graph is hard to debug when a mid-chain agent fails. Build and validate each agent type independently before wiring them together.
+
+**Treating parallel agents as independent.** Hundreds of agents writing to the same repo simultaneously will produce merge conflicts at scale. Design your task decomposition so each agent owns a non-overlapping scope (e.g., one agent per service, one agent per file).
+</Warning>
+
+## What we learned
+
+1. **The laptop is the wrong unit of scale for AI agents.** Running **Claude Code** locally is fine for individual tasks, but teams that need to apply AI-driven changes across dozens of services simultaneously need cloud orchestration — not more powerful laptops. Warp Oz reframes the agent as a fleet resource, not a personal tool.
+
+2. **Data privacy and cloud orchestration are not mutually exclusive.** The architectural split between the Oz orchestrator (cloud) and the execution environment (customer-managed) directly unblocks enterprise adoption. Sensitive code never has to leave the perimeter for the team to get full observability and lifecycle management.
+
+3. **Agent Composition unlocks workflows that single-agent runs can't handle.** The ability for agents to call other specialized agents — security scanners, test generators, PR writers — means complex, multi-step engineering processes can be encoded as reusable, composable graphs rather than monolithic prompts.
+
+---
+
+# Warp Oz turns a Rust terminal into an Agentic Development Environment
+
+> Warp is no longer just a fast terminal: with Warp Oz and cloud orchestration, it has evolved into an Agentic IDE targeting enterprise Telecom, AI-RAN, and the emerging VibeOps workflow.
+
+URL: https://growth.dante.id/growth/en/content/warp-oz-turns-a-rust-terminal-into-an-agentic-development-environment
+
+---
+title: "Warp Oz turns a Rust terminal into an Agentic Development Environment"
+description: "Warp is no longer just a fast terminal: with Warp Oz and cloud orchestration, it has evolved into an Agentic IDE targeting enterprise Telecom, AI-RAN, and the emerging VibeOps workflow."
+icon: "book-open"
+assetType: "content"
+---
+
+
+
+Most developers still think of **Warp** as a fast, Rust-based terminal with a nicer UI. That framing is now outdated. With the launch of **Warp Oz**, the product has officially repositioned itself as an Agentic Development Environment — one that orchestrates cloud agents directly from the command line and, quietly, has been building a serious enterprise play in Telecommunications and AI-RAN.
+
+## The context
+
+The terminal has been a static primitive for decades. Tools like **Warp** started by making it faster and smarter — autocomplete, AI suggestions, block-based output. But the real shift is happening at a higher layer: who manages the agents, where they run, and how infrastructure is abstracted away from the developer.
+
+**VibeOps** is the informal term emerging for this workflow — a style of operations where developers describe intent, and agents handle the execution. The question was always: what tool owns that layer? Warp is making a clear bet that the answer is the terminal, extended upward into the cloud.
+
+## What I tried / what I saw
+
+The most surprising signal here isn't the product itself — it's the target market. Warp is heavily targeting the Telecommunications sector, using its agent platform for **AI-RAN** (AI-native Radio Access Networks), network automation, and building autonomous networks. For a tool that most indie hackers associate with a slick macOS terminal, this is a significant reveal about the scale of their ambition.
+
+The core of the new positioning is **Warp Oz**: a cloud orchestration layer that lets developers spin up and manage AI coding agents without provisioning or babysitting infrastructure. The transition is explicit — Warp describes this as moving from a smart terminal to an Agentic Development Environment. Oz abstracts the agent management layer entirely, which is exactly what the VibeOps crowd needs: less time configuring compute, more time describing outcomes.
+
+<Note>
+All three signals — the Oz launch, the Telecom/AI-RAN enterprise angle, and the VibeOps framing — converge on the same architectural bet: the terminal becomes the control plane for agentic workflows, not just a shell.
+</Note>
+
+The Telecom angle deserves its own attention. **AI-RAN** is one of the most infrastructure-heavy domains in enterprise software — real-time constraints, distributed edge deployments, complex automation pipelines. If Warp's agent platform is being positioned there, it signals that Oz isn't a toy for solo developers; it's being built to handle serious orchestration workloads.
+
+For the VibeOps practitioner, the value proposition is direct: you describe what you want done, Oz manages the agents in the cloud, and you stay in the terminal. No separate dashboard, no context switch to a browser-based CI/CD UI, no manual agent lifecycle management.
+
+## What sticks
+
+- **Warp is no longer a terminal product — it's an agent orchestration platform** that happens to live in the terminal. Oz is the proof point. Evaluate it on those terms, not on shell features.
+- **The Telecom/AI-RAN targeting is a moat signal.** Enterprise Telecom has long procurement cycles and high switching costs. If Warp lands there, it locks in a category before competitors frame the space.
+- **VibeOps is a real workflow shift, not just a meme.** Abstracting agent infrastructure is the same move cloud providers made with VMs — the teams that adopt it early will move significantly faster than those still managing agent compute manually.
+- **Cloud orchestration from the CLI is the missing primitive.** Most agentic tooling today forces you into a web UI or a Python SDK. Warp Oz putting this in the terminal is an ergonomic bet that will resonate strongly with backend and platform engineers.
+- **Watch the enterprise roadmap, not the consumer changelog.** The interesting Warp developments are happening in the Telecom and autonomous network space — that's where the architectural decisions that affect everyone else will be made first.
+
+<Tip>
+If you're building agentic workflows today, treat the terminal as your orchestration surface — Warp Oz is the clearest signal yet that the CLI, not the browser, is where agent control planes are heading.
+</Tip>
+
+---
+
+# Warp Oz: Cloud Agent Orchestration Without Local Compute Limits
+
+> Warp Oz repositions the terminal as a cloud orchestration layer, letting you run unlimited parallel AI agents on remote or self-hosted infra while bypassing local CPU, memory, and git checkout constraints.
+
+URL: https://growth.dante.id/growth/en/content/warp-oz-cloud-agent-orchestration-without-local-compute-limits
+
+---
+title: "Warp Oz: Cloud Agent Orchestration Without Local Compute Limits"
+description: "Warp Oz repositions the terminal as a cloud orchestration layer, letting you run unlimited parallel AI agents on remote or self-hosted infra while bypassing local CPU, memory, and git checkout constraints."
+icon: "book-open"
+assetType: "content"
+---
+
+
+
+**Warp** just redefined what a terminal is. The February 10, 2026 launch of **Warp Oz** makes the case plainly: "Oz is the orchestration platform for cloud agents... It moves agents from individual laptops into the cloud, enabling teams to run, manage, and govern hundreds of AI coding agents in parallel." That's not a terminal feature — that's infrastructure.
+
+## The context
+
+Most developers still think of **Warp** as a fast, Rust-based terminal with AI autocomplete. That framing is now outdated. The broader industry shift is from *interactive* AI coding assistants — tools like Copilot or Cursor where a developer chats with a single agent — toward *fleets* of autonomous agents running asynchronously in the background.
+
+The framing from the **Warp Oz** announcement is direct: "2025 was the year of interactive agents. 2026 will be the year of agent orchestration." The bottleneck is no longer model quality. It's the infrastructure layer that manages, governs, and scales those agents.
+
+## What I tried / what I saw
+
+### The local compute wall
+
+The first concrete problem **Warp Oz** addresses is hardware. Running even a handful of AI coding agents locally creates an immediate ceiling: CPU and memory spike, and you start hitting `git` checkout limits when multiple agents need isolated working trees simultaneously.
+
+The Oz solution is to move execution off the laptop entirely. As the announcement states, with **Warp Oz** "you can interactively or programmatically spin up an unbounded number of agents" — removing the hardware constraint by design. The word *unbounded* is doing real work here: this isn't a higher limit, it's the removal of the local limit category altogether.
+
+<Note>
+"Programmatically spin up" implies an API or SDK surface for triggering agents from CI pipelines, scripts, or other orchestration systems — not just from a UI.
+</Note>
+
+### The enterprise security unlock
+
+The second problem **Warp Oz** targets is the one that blocks AI agents from most enterprise codebases: data residency and execution security. Teams with sensitive code can't route it through third-party cloud infrastructure.
+
+**Warp Oz** handles this with a split-plane model:
+
+| Plane | Where it runs | What it does |
+|---|---|---|
+| **Agent execution** | Customer-managed infrastructure | Runs the actual agent and touches the code |
+| **Oz orchestrator** | Warp-managed cloud | Manages lifecycle, observability, and governance |
+
+The announcement is explicit: "The agent runs on customer-managed infrastructure. The Oz orchestrator still manages lifecycle and observability. This is used when teams want code and execution to remain on their own systems." The orchestration metadata travels through Warp; the code never does.
+
+This is the architecture that makes **Warp Oz** viable for regulated industries and security-conscious engineering orgs — not just startups comfortable with SaaS-hosted execution.
+
+### The repositioning
+
+Taken together, these two capabilities — unbounded cloud agents and self-hosted execution with cloud orchestration — represent a full product repositioning. **Warp** is no longer competing with **iTerm2** or **Ghostty**. It's competing with internal platform engineering tooling and agent orchestration layers that enterprises would otherwise build themselves.
+
+## What sticks
+
+- **Local git checkout limits are a real ceiling.** If you've tried running more than 3–4 parallel AI coding agents, you've hit this. **Warp Oz** removes it by design, not by raising a limit.
+- **The split-plane model is the enterprise unlock.** Separating *orchestration lifecycle* (cloud) from *code execution* (on-prem) is the right architectural answer for security-sensitive teams. Watch for other vendors to copy this pattern.
+- **"Programmatically spin up" signals a platform, not a product.** If agents can be triggered via code, **Warp Oz** becomes a build target for CI/CD pipelines and internal developer platforms — not just a tool developers open manually.
+- **The 2025 → 2026 framing is a useful mental model.** Interactive agents (Copilot, Cursor) are now table stakes. The differentiation in 2026 is in orchestration: how many agents, how governed, how observable, at what scale.
+- **Governance and observability are first-class.** The announcement explicitly names "manage and govern" alongside "run." This is aimed at engineering leads and platform teams, not just individual developers.
+
+<Tip>
+If your team is already running parallel AI coding agents locally and hitting performance walls, the architectural move isn't a faster machine — it's moving execution to the cloud and keeping orchestration separate from your code.
+</Tip>
+
+---
+
+# The B2A Economy Is Already Here — And Most Builders Are Optimizing for the Wrong Customer
+
+> AI agents drove 805% more traffic on Black Friday 2025 and influenced $67B in Cyber Week sales. The B2A economy is not a forecast — it is commerce that already happened. Here is what it means for builders.
+
+URL: https://growth.dante.id/growth/en/content/b2a-economy-agent-first-growth
+
+---
+title: "The B2A Economy Is Already Here — And Most Builders Are Optimizing for the Wrong Customer"
+description: "AI agents drove 805% more traffic on Black Friday 2025 and influenced $67B in Cyber Week sales. The B2A economy is not a forecast — it is commerce that already happened. Here is what it means for builders."
+icon: "robot"
+assetType: content
+---
+
+
+
+On Black Friday 2025, no human typed a product query and got distracted by a notification. No one abandoned a cart because checkout was confusing. The traffic that surged that day came from agents — and it was not a rounding error.
+
+> "AI agent traffic surged 805% year-over-year on Black Friday 2025, and AI agents influenced $67 billion in global Cyber Week sales — 20% of all orders."
+
+805% year-over-year. $67 billion. One in five orders. These are not projections from a consulting deck. They are closed transactions. The Business-to-Agent economy — B2A — did not arrive as a trend to watch. It arrived as a revenue line that already printed.
+
+## The context
+
+The most durable signal of structural shift is capital allocation. In YC's Spring 2025 batch, 46% of funded startups — 67 of 144 — were explicitly building agentic AI solutions across 18 different categories. This is not a vertical bet on one flavor of AI. It is a horizontal thesis that the agentic layer cuts across every domain: legal, logistics, devtools, commerce.
+
+> "In YC's Spring 2025 batch, 46% of funded startups (67 of 144) were explicitly building agentic AI solutions across 18 different categories."
+
+When YC funds 67 companies in a single batch to build the infrastructure and applications of the agent economy, the question is no longer "will B2A matter?" The question is "what do agents need that does not exist yet?"
+
+The $67B Black Friday data point answers the urgency. The YC portfolio answers the direction. The uncomfortable implication: if you are still optimizing your growth strategy for human attention, you are already one cycle behind.
+
+## What I tried / what I saw
+
+**Agents break every assumption traditional marketing was built on.**
+
+Human buyers carry loyalty, loss aversion, brand affinity, and inertia. These are not bugs in consumer behavior — they are the entire surface area that traditional sales and marketing was built to exploit. Agents carry none of them.
+
+> "An agent will choose the vendor with the best-structured API response, the lowest price at the moment of query, and the clearest machine-readable capability description."
+
+There is no relationship to nurture. No brand story to tell. No emotional hook to set. An agent evaluating vendors at query time runs a pure capability and price comparison against machine-readable signals. The vendor with the clearest structured output wins. Full stop. Brand equity accumulated over decades does not transfer to a buyer that has no preferences, fatigue, or social graph.
+
+**The payment rail problem — and why crypto won by accident.**
+
+If agents are buyers, they need to pay. Card networks — Visa, Mastercard, Stripe's card flows — were designed with a human session as a fundamental assumption. 3DS authentication, fraud signals, CVV entry: all of it presupposes a person at a keyboard. An agent has no session in that sense. It has a wallet key and an intent.
+
+> "Crypto stablecoin rails are becoming the path of least resistance for agent-native payments, not because of ideology, but because they do not require a human session."
+
+Companies like Skyfire and Coinbase are not winning agent payments because developers are ideologically committed to decentralization. They are winning because their infrastructure does not assume a human is present — and card networks do. The ideology did not win. The architecture did. Stablecoin transaction volumes reached $710B in early 2025, with 35M unique wallet addresses — up 50% year-over-year.
+
+**Provenance becomes the new scarcity.**
+
+In a world where AI can generate unlimited plausible-sounding content, volume is no longer scarce. What becomes scarce is verifiable origin — signal that can be traced back to a real decision, a real build, a real debugging session.
+
+> "Developer session recordings are a provenance mechanism. 999x growth is, in this framing, not a content tool — it is a provenance and signal extraction layer for the agent economy."
+
+A session recording is not a content artifact. It is a timestamped, authenticated chain of decisions made by a real developer building a real system. That is a fundamentally different class of asset than a blog post or a polished editorial take. When agents index the web to make purchasing, integration, or tooling decisions, they will weight for signal density and provenance — not production value.
+
+## What sticks
+
+The convergence of these data points is a structural shift in who the customer is:
+
+- $67B in agent-influenced Cyber Week orders proves agents are already transacting at scale.
+- 46% of YC S25 is building agent infrastructure, which means the tooling to deploy more agents is accelerating.
+- Agents select on structured, machine-readable capability signals — not brand, not relationship.
+- Payment rails are adapting to remove the human-session assumption that blocked agent commerce.
+- Provenance — authenticated, traceable signal origin — is becoming the scarcity that content volume cannot replace.
+
+For builders and founders in this environment, the practical question is not "should I think about B2A?" It is: does my current signal — my documentation, my content, my API surface — communicate clearly to a non-human evaluator?
+
+Session recordings converted into structured, provenance-tagged knowledge entries are not just useful for your human audience. They are the exact format an agent would weight most heavily when deciding whether your tool is trustworthy, capable, and worth integrating. You are not just building an audience. You are training the next generation of buyers to recognize your signal as authoritative.
+
+The B2A economy is not coming. It closed $67 billion in orders last November. The question now is whether your growth infrastructure is built for the buyer that showed up.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The B2A Economy Is Already Here — And Most Builders Are Optimizing for the Wrong Customer",
+  "description": "AI agents drove 805% more traffic on Black Friday 2025 and influenced $67B in Cyber Week sales. The B2A economy is not a forecast — it is commerce that already happened. Here is what it means for builders.",
+  "citation": [
+    {
+      "@type": "Quotation",
+      "text": "AI agent traffic surged 805% year-over-year on Black Friday 2025, and AI agents influenced $67 billion in global Cyber Week sales — 20% of all orders.",
+      "about": "AI agents drove 805% more traffic on Black Friday 2025 and influenced $67B — 20% of all Cyber Week orders"
+    },
+    {
+      "@type": "Quotation",
+      "text": "Developer session recordings are a provenance mechanism. 999x growth is, in this framing, not a content tool — it is a provenance and signal extraction layer for the agent economy.",
+      "about": "999x growth is not a content tool — it is a provenance and signal extraction layer for the agent economy"
+    },
+    {
+      "@type": "Quotation",
+      "text": "Crypto stablecoin rails are becoming the path of least resistance for agent-native payments, not because of ideology, but because they do not require a human session.",
+      "about": "Crypto stablecoin rails are winning agent payments — not for ideology, but because card networks require a human session"
+    },
+    {
+      "@type": "Quotation",
+      "text": "In YC's Spring 2025 batch, 46% of funded startups (67 of 144) were explicitly building agentic AI solutions across 18 different categories.",
+      "about": "46% of YC Spring 2025 batch (67/144 startups) was explicitly agentic AI — most concentrated accelerator bet on a single paradigm ever"
+    },
+    {
+      "@type": "Quotation",
+      "text": "An agent will choose the vendor with the best-structured API response, the lowest price at the moment of query, and the clearest machine-readable capability description.",
+      "about": "AI agents shop without brand loyalty, emotional bias, or inertia — they pick the best-structured API response at query time"
+    }
+  ]
+}
+</script>
+
+---
+
+# Arquitectura SEO Multilingüe en Mintlify con Gemini y Claude
+
+> Cómo usar Gemini para diseñar la estrategia GEO/SEO — hreflang, consolidación de dominio, estructura de carpetas bilingüe — y luego pasar ese output directamente a un agente terminal de Claude para implementarlo en un repo de Mintlify, incluyendo corrección de bugs en componentes de Next.js mediante contexto visual con capturas de pantalla.
+
+URL: https://growth.dante.id/growth/es/playbooks/multilingual-seo-architecture-in-mintlify-using-gemini-and-claude
+
+---
+title: "Arquitectura SEO Multilingüe en Mintlify con Gemini y Claude"
+description: "Cómo usar Gemini para diseñar la estrategia GEO/SEO — hreflang, consolidación de dominio, estructura de carpetas bilingüe — y luego pasar ese output directamente a un agente terminal de Claude para implementarlo en un repo de Mintlify, incluyendo corrección de bugs en componentes de Next.js mediante contexto visual con capturas de pantalla."
+icon: "rocket"
+assetType: "playbook"
+---
+
+## ¿Qué problema resuelve?
+
+Publicar documentación en un solo idioma deja una visibilidad de búsqueda significativa sobre la mesa — tanto para los rankings tradicionales de Google como para motores impulsados por IA como Perplexity, ChatGPT y Google AI Overviews. Este playbook muestra cómo diseñar una arquitectura de docs bilingüe en **Mintlify** (inglés + español) usando **Gemini** para la estrategia GEO/SEO de alto nivel, y luego pasar ese output de estrategia directamente a un agente terminal de **Claude** para implementarlo — incluyendo la corrección de bugs de límite entre `Server Component` y `Client Component` de **Next.js** que aparecen durante el proceso.
+
+La idea central: publicar contenido bilingüe bajo un único dominio con la inyección correcta de `hreflang` duplica la superficie para citación por IA e indexación orgánica, mientras que la consolidación de dominio preserva la autoridad compartida en lugar de dividirla entre subdominios. Como [explica translatepress.com](https://translatepress.com/subdomain-vs-subdirectory/), el contenido en subdirectorios se beneficia de toda la autoridad del dominio principal, facilitando el posicionamiento — en ambos idiomas.
+
+## Antes de empezar
+
+- Un repo de **Mintlify** ya inicializado con un `mint.json` funcional
+- Acceso a **Gemini** (gemini.google.com o API) para generar la estrategia
+- **Claude** corriendo como agente terminal (Claude Code CLI o equivalente) apuntando a tu repo
+- Proyecto **Node.js** / **Next.js** App Router si tenés componentes personalizados en el sitio de docs
+- Familiaridad básica con las etiquetas `hreflang` y archivos de configuración JSON
+- Herramienta de capturas de pantalla o atajo del sistema operativo — vas a pasar contexto visual de bugs directamente al agente
+
+## Pasos
+
+<Steps>
+  <Step title="Consultá a Gemini para una estrategia GEO/SEO bilingüe">
+    Empezá en **Gemini**, no en tu codebase. Escribile un prompt con tu intención de publicación exacta para que pueda razonar sobre las mejores prácticas antes de escribir cualquier código.
+
+    En el minuto `2:50`, el prompt utilizado fue:
+
+    ```
+    what will be the best practice for GEO and SEO if we want to publish
+    content in spanish and english in mintlify and create a growth strategy for it.
+    ```
+
+    **Gemini** devolvió dos recomendaciones arquitectónicas clave:
+
+    | Estrategia | Qué significa |
+    |---|---|
+    | **Domain Consolidation** | Mantener `/en/` y `/es/` como subdirectorios bajo un único dominio — no subdominios separados — para que toda la autoridad SEO se acumule en un solo lugar |
+    | **Hreflang Injection** | Agregar etiquetas `hreflang` (vía `mint.json` o un componente `<head>` personalizado) para que los motores de búsqueda sirvan la versión correcta del idioma y eviten penalizaciones por contenido duplicado |
+
+    [El 60% de los sitios multilingües tienen errores de hreflang](https://eastondev.com/blog/en/posts/dev/20251225-nextjs-i18n-seo/), lo que lleva a que se muestren versiones en el idioma incorrecto y a caídas en el ranking — hacer esto bien desde el principio importa.
+
+    El output de Gemini incluyó fragmentos JSON de ejemplo para `mint.json`. Copiá el texto completo de la respuesta — lo vas a usar textualmente en el siguiente paso.
+
+    <Tip>
+      GEO (Generative Engine Optimization) y SEO son complementarios acá. Los docs bilingües estructurados con forma de respuesta son [más fácilmente extraídos y sintetizados por motores de IA](https://hygraph.com/blog/geo-content-strategy-guide) como Perplexity y Google AI Overviews — lo que significa que tus páginas en español pueden ser citadas en consultas de IA en español de forma independiente a tus páginas en inglés.
+    </Tip>
+  </Step>
+
+  <Step title="Pegá el output de Gemini en el agente terminal de Claude">
+    En el minuto `5:00`, el dev pegó la respuesta completa de la estrategia de Gemini directamente en la terminal donde corría el agente de Claude, y luego ejecutó:
+
+    ```bash
+    /plan
+    ```
+
+    Este es el patrón de handoff: **Gemini** se encarga de la investigación amplia y el razonamiento arquitectónico; **Claude** se encarga de la implementación práctica en el repo. No le estás pidiendo a Claude que invente la estrategia SEO — le estás dando una especificación completamente razonada y le pedís que la ejecute.
+
+    Este flujo de pegado manual se corresponde directamente con lo que los profesionales describen como separación de roles en pipelines multi-modelo: [Gemini para análisis e investigación a gran escala, Claude como orquestador de implementación](https://dev.to/zaferdace/multi-model-ai-orchestration-for-software-development-how-i-ship-10x-faster-with-claude-codex-53l3). Una versión más automatizada usa un slash command `/gemini` para enrutar entre modelos sin salir de la terminal — pero el pegado manual logra el mismo resultado y no requiere configuración de herramientas adicionales.
+
+    Claude generó entonces un plan de implementación completo que incluía:
+    - Estructura de carpetas bilingüe (directorios `/en/`, `/es/` en el repo de Mintlify)
+    - Actualizaciones de `mint.json` para navegación y configuración de locale
+    - Estrategia de inyección de etiquetas `hreflang`
+  </Step>
+
+  <Step title="Corregí errores de límite Server/Client Component de Next.js mediante contexto visual">
+    Durante la implementación, apareció un error de `next/headers` en el navegador en el minuto `1:20`. Esto ocurre cuando un módulo que usa APIs del App Router de **Next.js** se importa en un contexto de Pages Router o Client Component.
+
+    ```bash
+    You're importing a module that depends on 'next/headers'. This API is only available
+    in Server Components in the App Router, but you are using it in the Pages Router.
+    ./lib/auth.ts (7:1)
+    ```
+
+    En lugar de depurar manualmente, el dev pasó tanto el texto del error como una **captura de pantalla** del bug visual al agente de Claude en la terminal:
+
+    ```
+    when i added a loom video through URL i got this error [Image #32]
+    ```
+
+    Un segundo prompt abordó un bug de estado en la UI — una barra de selección que siempre estaba visible en lugar de aparecer solo cuando se seleccionaban momentos:
+
+    ```
+    there is a bug on this UI, it is always present when it should be only
+    present when we select moments. please make sure you can fix it
+    it may be a state issue
+    ```
+
+    Claude resolvió ambos: la corrección de `next/headers` implicó mover el import al límite correcto de un Server Component; la corrección de la barra de selección fue un problema de inicialización de estado en React.
+
+    <Note>
+      Pasar una captura de pantalla junto al mensaje de error le da al agente contexto visual que los stack traces solos no proveen — especialmente para bugs de layout/estado donde el síntoma es posicional y no textual.
+    </Note>
+  </Step>
+
+  <Step title="Validá la estructura de carpetas bilingüe y la configuración de hreflang">
+    Después de que Claude aplica el plan de implementación, verificá dos cosas manualmente:
+
+    **1. Estructura de carpetas**
+    ```
+    docs/
+    ├── en/
+    │   └── getting-started.mdx
+    └── es/
+        └── getting-started.mdx
+    ```
+
+    **2. Entradas de hreflang en `mint.json`** — confirmá que cada par de páginas esté vinculado bidireccionalmente. Una configuración correcta se ve así:
+
+    ```json
+    {
+      "anchors": [],
+      "navigation": [...],
+      "i18n": {
+        "languages": ["en", "es"],
+        "defaultLanguage": "en"
+      }
+    }
+    ```
+
+    Ejecutá el servidor de desarrollo de Mintlify y confirmá que ambas rutas de idioma se resuelven sin errores 404 antes de hacer el merge.
+  </Step>
+</Steps>
+
+## Errores comunes
+
+<Warning>
+**`next/headers` en Client Components** — Si tu repo de Mintlify usa componentes personalizados de Next.js, cualquier archivo que importe desde `next/headers`, `next/cookies` o APIs similares del App Router se romperá si se renderiza en un Client Component o en el contexto del Pages Router. La solución es mover esa lógica a un Server Component dedicado y pasar los datos hacia abajo como props.
+
+**Mala configuración de hreflang** — Omitir la etiqueta recíproca es el error más común: si `/en/page` declara `hreflang="es"` apuntando a `/es/page`, entonces `/es/page` también debe declarar `hreflang="en"` apuntando de vuelta. Las etiquetas unidireccionales son ignoradas por Google.
+
+**Confusión entre subdominio y subdirectorio** — Usar `es.yourdomain.com` en lugar de `yourdomain.com/es/` divide la autoridad del dominio en dos. La recomendación de Gemini de Domain Consolidation (subdirectorio) es la decisión correcta para un sitio de docs que todavía no tiene autoridad de subdominio independiente.
+
+**Pegar el output parcial de Gemini** — El handoff solo funciona si Claude recibe el texto completo de la estrategia. El contexto truncado produce planes de implementación incompletos. Copiá toda la respuesta de Gemini antes de cambiar a la terminal.
+</Warning>
+
+## Lo que aprendimos
+
+**1. Gemini → Claude como pipeline de dos etapas es más rápido que el prompting con un solo modelo.** Pedirle a un modelo que diseñe una arquitectura SEO y que la implemente en un repo específico produce resultados mediocres en ambas tareas. Dividir el trabajo — Gemini para la estrategia, Claude para la implementación — produjo un plan concreto y listo para el repo en una sola invocación de `/plan` (minuto `5:00`).
+
+**2. El contexto visual colapsa el ciclo de reporte de bugs.** El error de `next/headers` y el bug de la barra de selección en la UI fueron resueltos por el agente sin que el dev tocara el código manualmente. Pasar una captura de pantalla junto al mensaje de error en el minuto `1:20` le dio a Claude suficiente contexto visual y textual para identificar las causas raíz que los stack traces solos no hubieran revelado.
+
+**3. Los docs bilingües en Mintlify son un multiplicador GEO, no solo SEO.** El razonamiento planteado en el minuto `2:50` — más visibilidad, más awareness, más volumen — aplica igualmente a las respuestas generadas por IA. Los docs bilingües estructurados bajo un único dominio significan que tu contenido puede ser citado tanto en AI Overviews en inglés como en español de forma independiente, duplicando la superficie de citación sin duplicar el costo de autoridad de dominio.
+
+---
+
+# Ejecutando Claude Code y agentes de IA a escala con Warp Oz
+
+> Warp Oz permite a las empresas orquestar cientos de agentes de IA en paralelo — incluyendo Claude Code y Codex — con orquestación en la nube, ejecución on-prem y composición agente-a-agente para flujos de trabajo de ingeniería complejos.
+
+URL: https://growth.dante.id/growth/es/playbooks/running-claude-code-and-ai-agents-at-scale-with-warp-oz
+
+---
+title: "Ejecutando Claude Code y agentes de IA a escala con Warp Oz"
+description: "Warp Oz permite a las empresas orquestar cientos de agentes de IA en paralelo — incluyendo Claude Code y Codex — con orquestación en la nube, ejecución on-prem y composición agente-a-agente para flujos de trabajo de ingeniería complejos."
+icon: "rocket"
+assetType: "playbook"
+---
+
+
+
+## ¿Qué problema resuelve?
+
+Ejecutar agentes de codificación de IA en las laptops individuales de los desarrolladores — el estándar actual con herramientas como **Cursor** o sesiones locales de **Claude Code** — crea un techo duro para el rendimiento del equipo de ingeniería. **Warp Oz** rompe ese techo moviendo la ejecución de los agentes a la nube, permitiendo que los equipos orquesten cientos de agentes en paralelo mientras mantienen controles de gobernanza, observabilidad y privacidad de datos.
+
+Para las empresas en particular, el obstáculo no es la capacidad — es la confianza: el código sensible no puede salir del perímetro. Oz aborda esto separando el orquestador (gestionado en la nube) del entorno de ejecución (infraestructura gestionada por el cliente), de modo que las dos preocupaciones nunca entran en conflicto.
+
+## Antes de empezar
+
+- Una cuenta de **Warp** con acceso a la capa de orquestación **Warp Oz**
+- Al menos un agente de codificación CLI que quieras escalar: **Claude Code**, **Codex** u **OpenCode**
+- Claridad sobre tu límite de ejecución: solo en la nube vs. híbrido (orquestador en la nube + runners on-prem)
+- Para despliegues empresariales: infraestructura gestionada por el cliente aprovisionada y accesible por el orquestador de Oz
+
+## Pasos
+
+<Steps>
+  <Step title="Elegí tu modelo de ejecución">
+    Decidí si los agentes van a correr completamente en la nube de Warp o en tu propia infraestructura.
+
+    - **Ejecución en la nube** — la más rápida para arrancar; Oz gestiona el ciclo de vida completo.
+    - **Ejecución híbrida / on-prem** — los agentes corren dentro de tu perímetro; el orquestador de Oz sigue gestionando el ciclo de vida y la observabilidad desde la nube. Este es el camino recomendado para cualquier equipo con requisitos de residencia de datos.
+
+    <Note>
+      El orquestador de Oz y el runner del agente están desacoplados intencionalmente. Podés empezar con ejecución en la nube y migrar los runners on-prem más adelante sin cambiar las definiciones de tu workflow.
+    </Note>
+  </Step>
+
+  <Step title="Conectá tus agentes de codificación CLI a Warp Oz">
+    **Claude Code**, **Codex** y **OpenCode** corren nativamente dentro de Warp Oz. No reemplazás estas herramientas — las envolvés.
+
+    Oz agrega una capa de UI enriquecida sobre cada sesión de agente CLI:
+
+    | Capacidad | Qué te da |
+    |---|---|
+    | Input enriquecido | Prompts estructurados, adjuntos de archivos, inyección de contexto |
+    | Notificaciones | Actualizaciones de estado en tiempo real por sesión de agente |
+    | Revisión de código | Revisión de diffs inline sin salir del orquestador |
+    | Control remoto de sesión | Pausar, reanudar o redirigir cualquier sesión de agente en ejecución |
+
+    Conectá un agente seleccionándolo del registro de agentes de Oz y apuntándolo a un repo objetivo o definición de tarea.
+  </Step>
+
+  <Step title="Escalá a ejecución de agentes en paralelo">
+    Una vez que una sesión de agente individual está funcionando, Oz convierte el escalado horizontal en una decisión de configuración, no en un proyecto de infraestructura.
+
+    - Definí el alcance de la tarea (por ejemplo, "ejecutar este refactor en los 40 microservicios").
+    - Establecé límites de concurrencia y cuotas de recursos por agente.
+    - Lanzá: Oz crea y gestiona cientos de instancias de agentes, cada una con su propio ciclo de vida, logs y artefactos de salida.
+
+    <Tip>
+      Empezá con un fan-out pequeño (5–10 agentes) en un repo no crítico para validar tu definición de tarea antes de escalar a cientos.
+    </Tip>
+  </Step>
+
+  <Step title="Componé agentes para workflows de múltiples pasos">
+    Para tareas de ingeniería complejas, las ejecuciones de un solo agente no son suficientes. Oz soporta **Agent Composition** — agentes que llaman a otros agentes especializados como sub-tareas, creando workflows de múltiples pasos a partir de bloques de construcción reutilizables.
+
+    Patrón de ejemplo:
+
+    ```
+    Orchestrator agent
+    ├── calls → Security scanner agent (per service)
+    ├── calls → Test generator agent (per changed file)
+    └── calls → PR description agent (per branch)
+    ```
+
+    Definí la composición en tu configuración de workflow especificando qué tipos de agentes puede invocar un agente padre y bajo qué condiciones. Oz se encarga del enrutamiento, la agregación de resultados y el manejo de errores a lo largo del grafo.
+  </Step>
+
+  <Step title="Monitoreá y gobernás desde el dashboard de Oz">
+    Cada sesión de agente — ya sea corriendo en la nube de Warp o en tu propia infraestructura — expone eventos de ciclo de vida, logs y salidas de vuelta al orquestador de Oz.
+
+    - Revisá el estado por agente en tiempo real.
+    - Inspeccioná los diffs de código antes de mergear cualquier salida generada por agentes.
+    - Usá el control remoto de sesión para intervenir en una sesión en ejecución sin terminarla.
+  </Step>
+</Steps>
+
+## Errores comunes
+
+<Warning>
+**Saltarse la decisión del límite de ejecución al principio.** Si empezás con runners en la nube y después descubrís que tu política de seguridad requiere ejecución on-prem, migrar a mitad del proyecto es doloroso. Definí tu modelo de ejecución antes de escribir cualquier definición de workflow.
+
+**Sobre-componer grafos de agentes demasiado pronto.** Agent Composition es poderoso, pero un grafo de agentes profundamente anidado es difícil de depurar cuando falla un agente en el medio de la cadena. Construí y validá cada tipo de agente de forma independiente antes de conectarlos entre sí.
+
+**Tratar a los agentes en paralelo como independientes.** Cientos de agentes escribiendo en el mismo repo simultáneamente van a producir conflictos de merge a escala. Diseñá la descomposición de tareas de modo que cada agente tenga un alcance no superpuesto (por ejemplo, un agente por servicio, un agente por archivo).
+</Warning>
+
+## Lo que aprendimos
+
+1. **La laptop es la unidad de escala equivocada para los agentes de IA.** Ejecutar **Claude Code** localmente está bien para tareas individuales, pero los equipos que necesitan aplicar cambios impulsados por IA en decenas de servicios simultáneamente necesitan orquestación en la nube — no laptops más potentes. Warp Oz reencuadra al agente como un recurso de flota, no como una herramienta personal.
+
+2. **La privacidad de datos y la orquestación en la nube no son mutuamente excluyentes.** La separación arquitectónica entre el orquestador de Oz (nube) y el entorno de ejecución (gestionado por el cliente) desbloquea directamente la adopción empresarial. El código sensible nunca tiene que salir del perímetro para que el equipo obtenga observabilidad completa y gestión del ciclo de vida.
+
+3. **Agent Composition desbloquea workflows que las ejecuciones de un solo agente no pueden manejar.** La capacidad de los agentes para llamar a otros agentes especializados — escáneres de seguridad, generadores de tests, escritores de PRs — significa que los procesos de ingeniería complejos y de múltiples pasos pueden codificarse como grafos reutilizables y componibles en lugar de prompts monolíticos.
+
+---
+
+# Warp Oz convierte una terminal en Rust en un Agentic Development Environment
+
+> Warp ya no es solo una terminal rápida: con Warp Oz y orquestación en la nube, evolucionó hacia un Agentic IDE orientado a Telecom enterprise, AI-RAN y el flujo de trabajo emergente de VibeOps.
+
+URL: https://growth.dante.id/growth/es/content/warp-oz-turns-a-rust-terminal-into-an-agentic-development-environment
+
+---
+title: "Warp Oz convierte una terminal en Rust en un Agentic Development Environment"
+description: "Warp ya no es solo una terminal rápida: con Warp Oz y orquestación en la nube, evolucionó hacia un Agentic IDE orientado a Telecom enterprise, AI-RAN y el flujo de trabajo emergente de VibeOps."
+icon: "book-open"
+assetType: "content"
+---
+
+
+
+La mayoría de los desarrolladores todavía piensan en **Warp** como una terminal rápida basada en Rust con una UI más prolija. Ese encuadre ya quedó desactualizado. Con el lanzamiento de **Warp Oz**, el producto se reposicionó oficialmente como un Agentic Development Environment — uno que orquesta agentes en la nube directamente desde la línea de comandos y que, en silencio, viene construyendo una apuesta enterprise seria en Telecomunicaciones y AI-RAN.
+
+## El contexto
+
+La terminal fue una primitiva estática durante décadas. Herramientas como **Warp** empezaron haciéndola más rápida e inteligente — autocompletado, sugerencias de IA, output basado en bloques. Pero el cambio real está ocurriendo en una capa más alta: quién gestiona los agentes, dónde corren y cómo se abstrae la infraestructura del desarrollador.
+
+**VibeOps** es el término informal que está emergiendo para este flujo de trabajo — un estilo de operaciones donde los desarrolladores describen la intención y los agentes se encargan de la ejecución. La pregunta siempre fue: ¿qué herramienta se adueña de esa capa? Warp está apostando fuerte a que la respuesta es la terminal, extendida hacia arriba en la nube.
+
+## Lo que probé / lo que vi
+
+La señal más sorprendente acá no es el producto en sí — es el mercado objetivo. Warp apunta fuertemente al sector de Telecomunicaciones, usando su plataforma de agentes para **AI-RAN** (AI-native Radio Access Networks), automatización de redes y construcción de redes autónomas. Para una herramienta que la mayoría de los indie hackers asocia con una terminal macOS prolija, esto es una revelación significativa sobre la escala de su ambición.
+
+El núcleo del nuevo posicionamiento es **Warp Oz**: una capa de orquestación en la nube que permite a los desarrolladores levantar y gestionar agentes de codificación con IA sin provisionar ni babysittear infraestructura. La transición es explícita — Warp describe esto como pasar de una terminal inteligente a un Agentic Development Environment. Oz abstrae completamente la capa de gestión de agentes, que es exactamente lo que necesita la gente de VibeOps: menos tiempo configurando cómputo, más tiempo describiendo resultados.
+
+<Note>
+Las tres señales — el lanzamiento de Oz, el ángulo enterprise de Telecom/AI-RAN y el encuadre de VibeOps — convergen en la misma apuesta arquitectónica: la terminal se convierte en el plano de control para flujos de trabajo agénticos, no solo en un shell.
+</Note>
+
+El ángulo Telecom merece atención propia. **AI-RAN** es uno de los dominios con mayor carga de infraestructura en el software enterprise — restricciones en tiempo real, despliegues distribuidos en el edge, pipelines de automatización complejos. Si la plataforma de agentes de Warp se está posicionando ahí, eso señala que Oz no es un juguete para desarrolladores solos; está siendo construido para manejar cargas de trabajo de orquestación serias.
+
+Para el practicante de VibeOps, la propuesta de valor es directa: describís lo que querés hacer, Oz gestiona los agentes en la nube y vos te quedás en la terminal. Sin dashboard separado, sin cambio de contexto a una UI de CI/CD en el navegador, sin gestión manual del ciclo de vida de los agentes.
+
+## Lo que sale en limpio
+
+- **Warp ya no es un producto de terminal — es una plataforma de orquestación de agentes** que vive en la terminal. Oz es la prueba. Evalualo en esos términos, no por sus features de shell.
+- **El targeting de Telecom/AI-RAN es una señal de foso competitivo.** Telecom enterprise tiene ciclos de compra largos y altos costos de cambio. Si Warp se instala ahí, bloquea una categoría antes de que los competidores enmarquen el espacio.
+- **VibeOps es un cambio real en el flujo de trabajo, no solo un meme.** Abstraer la infraestructura de agentes es el mismo movimiento que hicieron los proveedores de nube con las VMs — los equipos que lo adopten temprano van a moverse significativamente más rápido que los que todavía gestionan el cómputo de agentes de forma manual.
+- **La orquestación en la nube desde la CLI es la primitiva que faltaba.** La mayoría de las herramientas agénticas de hoy te obligan a usar una UI web o un SDK de Python. Que Warp Oz ponga esto en la terminal es una apuesta ergonómica que va a resonar fuertemente entre los ingenieros de backend y plataforma.
+- **Seguí el roadmap enterprise, no el changelog para consumidores.** Los desarrollos interesantes de Warp están ocurriendo en el espacio de Telecom y redes autónomas — ahí es donde se van a tomar primero las decisiones arquitectónicas que después afectan a todos los demás.
+
+<Tip>
+Si estás construyendo flujos de trabajo agénticos hoy, tratá la terminal como tu superficie de orquestación — Warp Oz es la señal más clara hasta ahora de que la CLI, no el navegador, es hacia donde se dirigen los planos de control de agentes.
+</Tip>
+
+---
+
+# Warp Oz: Orquestación de Agentes en la Nube Sin Límites de Cómputo Local
+
+> Warp Oz reposiciona la terminal como una capa de orquestación en la nube, permitiéndote correr agentes de IA paralelos e ilimitados en infraestructura remota o self-hosted, evitando las restricciones de CPU, memoria y git checkout locales.
+
+URL: https://growth.dante.id/growth/es/content/warp-oz-cloud-agent-orchestration-without-local-compute-limits
+
+---
+title: "Warp Oz: Orquestación de Agentes en la Nube Sin Límites de Cómputo Local"
+description: "Warp Oz reposiciona la terminal como una capa de orquestación en la nube, permitiéndote correr agentes de IA paralelos e ilimitados en infraestructura remota o self-hosted, evitando las restricciones de CPU, memoria y git checkout locales."
+icon: "book-open"
+assetType: "content"
+---
+
+
+
+**Warp** acaba de redefinir qué es una terminal. El lanzamiento de **Warp Oz** el 10 de febrero de 2026 lo plantea sin rodeos: "Oz es la plataforma de orquestación para agentes en la nube... Mueve los agentes de las laptops individuales a la nube, permitiendo que los equipos corran, gestionen y gobiernen cientos de agentes de IA de coding en paralelo." Eso no es una feature de terminal — es infraestructura.
+
+## El contexto
+
+La mayoría de los desarrolladores todavía piensan en **Warp** como una terminal rápida, basada en Rust, con autocompletado de IA. Ese encuadre ya quedó desactualizado. El cambio más amplio en la industria va de los asistentes de coding con IA *interactivos* — herramientas como Copilot o Cursor donde un desarrollador chatea con un único agente — hacia *flotas* de agentes autónomos corriendo de forma asíncrona en segundo plano.
+
+El encuadre del anuncio de **Warp Oz** es directo: "2025 fue el año de los agentes interactivos. 2026 será el año de la orquestación de agentes." El cuello de botella ya no es la calidad del modelo. Es la capa de infraestructura que gestiona, gobierna y escala esos agentes.
+
+## Lo que probé / lo que vi
+
+### El techo del cómputo local
+
+El primer problema concreto que **Warp Oz** aborda es el hardware. Correr incluso un puñado de agentes de IA de coding localmente crea un techo inmediato: el CPU y la memoria se disparan, y empezás a chocar con los límites de checkout de `git` cuando múltiples agentes necesitan working trees aislados simultáneamente.
+
+La solución de Oz es mover la ejecución fuera de la laptop por completo. Como indica el anuncio, con **Warp Oz** "podés levantar de forma interactiva o programática un número ilimitado de agentes" — eliminando la restricción de hardware por diseño. La palabra *ilimitado* está haciendo un trabajo real acá: no se trata de un límite más alto, sino de la eliminación de la categoría de límite local por completo.
+
+<Note>
+"Levantar programáticamente" implica una superficie de API o SDK para disparar agentes desde pipelines de CI, scripts u otros sistemas de orquestación — no solo desde una UI.
+</Note>
+
+### El unlock de seguridad empresarial
+
+El segundo problema que **Warp Oz** apunta a resolver es el que bloquea a los agentes de IA en la mayoría de los codebases empresariales: la residencia de datos y la seguridad de ejecución. Los equipos con código sensible no pueden enrutarlo a través de infraestructura cloud de terceros.
+
+**Warp Oz** maneja esto con un modelo de planos separados:
+
+| Plano | Dónde corre | Qué hace |
+|---|---|---|
+| **Ejecución del agente** | Infraestructura gestionada por el cliente | Corre el agente real y toca el código |
+| **Orquestador Oz** | Nube gestionada por Warp | Gestiona el ciclo de vida, la observabilidad y la gobernanza |
+
+El anuncio es explícito: "El agente corre en infraestructura gestionada por el cliente. El orquestador Oz sigue gestionando el ciclo de vida y la observabilidad. Esto se usa cuando los equipos quieren que el código y la ejecución permanezcan en sus propios sistemas." Los metadatos de orquestación viajan a través de Warp; el código nunca lo hace.
+
+Esta es la arquitectura que hace viable a **Warp Oz** para industrias reguladas y organizaciones de ingeniería con foco en seguridad — no solo para startups cómodas con ejecución hosteada en SaaS.
+
+### El reposicionamiento
+
+Tomadas en conjunto, estas dos capacidades — agentes cloud ilimitados y ejecución self-hosted con orquestación en la nube — representan un reposicionamiento completo del producto. **Warp** ya no compite con **iTerm2** o **Ghostty**. Compite con el tooling interno de platform engineering y las capas de orquestación de agentes que las empresas de otro modo construirían ellas mismas.
+
+## Lo que sale en limpio
+
+- **Los límites de git checkout locales son un techo real.** Si alguna vez intentaste correr más de 3–4 agentes de IA de coding en paralelo, te topaste con esto. **Warp Oz** lo elimina por diseño, no subiendo un límite.
+- **El modelo de planos separados es el unlock empresarial.** Separar el *ciclo de vida de orquestación* (nube) de la *ejecución del código* (on-prem) es la respuesta arquitectónica correcta para equipos con sensibilidad a la seguridad. Observá cómo otros vendors copian este patrón.
+- **"Levantar programáticamente" señala una plataforma, no un producto.** Si los agentes pueden dispararse mediante código, **Warp Oz** se convierte en un build target para pipelines de CI/CD y plataformas internas de desarrolladores — no solo una herramienta que los desarrolladores abren manualmente.
+- **El encuadre 2025 → 2026 es un modelo mental útil.** Los agentes interactivos (Copilot, Cursor) son ahora el piso mínimo. La diferenciación en 2026 está en la orquestación: cuántos agentes, con qué gobernanza, con qué observabilidad, a qué escala.
+- **La gobernanza y la observabilidad son de primera clase.** El anuncio nombra explícitamente "gestionar y gobernar" junto a "correr." Esto apunta a engineering leads y equipos de plataforma, no solo a desarrolladores individuales.
+
+<Tip>
+Si tu equipo ya está corriendo agentes de IA de coding en paralelo localmente y chocando con cuellos de botella de rendimiento, el movimiento arquitectónico no es una máquina más rápida — es mover la ejecución a la nube y mantener la orquestación separada de tu código.
+</Tip>
