@@ -1,0 +1,91 @@
+---
+title: "Your API Description Is Now Your Competitive Moat"
+description: "97% of MCP tool descriptions are broken by default — and in a world where agents route traffic based on description quality, that is a ranking problem, not a documentation problem."
+icon: "code"
+assetType: content
+---
+
+The protocol layer that connects AI agents to tools is broken by default.
+
+> "97.1% of analyzed MCP tool descriptions contain at least one quality smell — top three: Unstated Limitations (89.8%), Missing Usage Guidelines (89.3%), Opaque Parameters (84.3%)"
+
+— arXiv 2602.14878, Feb 2025
+
+97M+ developers are downloading MCP SDK monthly. And 97% of what they are shipping is functionally invisible to agents that need to choose between tools.
+
+## The context
+
+[The B2A Economy piece](https://growth.dante.id/growth/en/content/b2a-economy-agent-first-growth) established that agents are becoming the primary consumer of APIs. That shift changes what "a good API" means at a structural level. When a human developer evaluates an API, they read docs, ask questions, try things, and course-correct. When an agent evaluates a tool, it runs a semantic similarity search against descriptions loaded into its context window — once, at inference time — and picks.
+
+There is no second chance. There is no Googling. There is no asking a colleague.
+
+That makes your tool descriptions less like documentation and more like a search ranking signal.
+
+One more thing worth deflating before going further: MCP is not a new protocol requiring a full architectural rewrite.
+
+> "88.6% of production MCP servers are REST-backed (AutoMCP, arXiv 2507.16044) — it's a semantic layer over existing REST, not a replacement"
+
+88.6% of production MCP servers are just existing REST APIs with a semantic wrapper on top. What MCP adds is not a new transport layer — it is a standardized way for agents to discover, understand, and invoke tools. The infrastructure you have is fine. The descriptions on top of it are almost certainly not.
+
+## What I tried / what I saw
+
+**Description quality is the entire distribution game.**
+
+When multiple MCP servers compete in a registry, description quality is what agents use to decide which one to call.
+
+> "Standard-compliant descriptions achieved 72% selection probability in competitive MCP registries vs. 20% baseline"
+
+— arXiv 2602.18914
+
+A 3.6x difference in agent routing — from the same underlying functionality — purely from how the tool is described. That is not a documentation problem. That is a distribution problem.
+
+Developers understand search ranking. They understand that two pages serving the same content can have wildly different organic traffic based on how well they are optimized. The same logic now applies to tools. If your competitor's MCP server has a better description of what the tool does, when to use it, what its limitations are, and what parameters it expects — their tool gets called. Yours does not.
+
+**The failure mode with bad descriptions is not just lost routing.**
+
+It is also that when things go wrong mid-task, agents cannot recover. A practitioner on dev.to documented what happened when they restructured error messages for LLM consumption:
+
+**Before:**
+```
+Error: Element not found
+```
+
+**After:**
+```
+[StaleRefError] Element reference #btn-submit no longer valid.
+Cause: Page navigation likely occurred since reference was captured.
+Recovery:
+1. Call browser_snapshot() to get current page state
+2. Find element by role="button" and name="Submit"
+3. Retry operation with new reference
+```
+
+> "Moved from ~20% to ~95% error recovery by restructuring errors for LLM consumption."
+
+— dev.to/johnonline35
+
+The difference between those two error messages is not verbosity — it is recoverability. A human reading "Element not found" has years of context to draw on. An agent reading it has only what is in the response. Every error message that does not include a recovery path is a dead end.
+
+**Cloudflare challenged the entire MCP-tools assumption.**
+
+The assumption baked into most MCP guidance is that you expose your API surface as MCP tools, with OpenAPI specs describing each one. Cloudflare's Code Mode (September 2025) reported something surprising:
+
+> "Rather than MCP tools (60-line YAML OpenAPI specs), expose TypeScript interfaces (~15 lines) that agents write code against. Reported 81% token reduction vs. traditional tool-calling."
+
+— Cloudflare Code Mode, Sept 2025
+
+81% fewer tokens for the same functionality. For high-frequency, well-typed APIs, letting agents write code against a TypeScript interface instead of calling pre-defined tools may be a strictly better design. The interface is shorter, more expressive, and gives the agent flexibility to compose operations that a rigid tool definition would not allow.
+
+This also means the competitive window is real but short. If wrapping REST in MCP is low-friction, every team can do it quickly. The teams that win will be the ones that treat their tool descriptions as a product — with the same rigor they apply to their actual API surface.
+
+## What sticks
+
+Three things follow from these findings:
+
+**Treat your tool descriptions as a product surface.** The six components that empirically separate high-selection descriptions from low-selection ones are: purpose, guidelines (when and how to invoke), limitations, parameter intent (not just types), examples, and appropriate length for complexity. Most teams have none of these. Adding them is not a documentation sprint — it is competitive positioning.
+
+**Redesign every error response as a recovery plan.** The pattern is: error code, human-readable message, `is_retriable` boolean, `retry_after_seconds`, `documentation_url`, and `allowed_next_actions`. An agent that knows `"allowed_next_actions": ["reduce_amount", "request_limit_increase"]` can recover autonomously. An agent that gets `"Error: payment failed"` cannot.
+
+**Measure token cost as a design constraint.** Whether you go MCP tools, TypeScript interfaces, or Arazzo workflow sequences — account for what loading your API surface costs in context. Teams that do this now will have a structural advantage as agent workloads scale.
+
+The B2A economy runs on agent routing. Agent routing runs on description quality. That is the leverage point — and right now, 97% of the ecosystem is leaving it untouched.

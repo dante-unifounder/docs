@@ -1,1 +1,101 @@
-{}
+{
+  "growth/en/content/your-api-description-is-now-your-competitive-moat-2": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Your API Description Is Now Your Competitive Moat",
+    "name": "Your API Description Is Now Your Competitive Moat",
+    "description": "97% of MCP tool descriptions are broken by default — and in a world where agents route traffic based on description quality, that is a ranking problem, not a documentation problem.",
+    "inLanguage": "en",
+    "url": "https://growth.dante.id/growth/en/content/your-api-description-is-now-your-competitive-moat-2",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://growth.dante.id/growth/en/content/your-api-description-is-now-your-competitive-moat-2"
+    },
+    "datePublished": "2026-04-27T20:40:12.615Z",
+    "dateModified": "2026-04-27T20:40:12.615Z",
+    "author": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "keywords": "AutoMCP, Cloudflare, MCP",
+    "citation": [
+      {
+        "@type": "Quotation",
+        "text": "97.1% of analyzed MCP tool descriptions contain at least one quality smell — top three: Unstated Limitations (89.8%), Missing Usage Guidelines (89.3%), Opaque Parameters (84.3%)",
+        "about": "97% of MCP tool descriptions contain at least one quality smell",
+        "description": "The gap between how widely MCP is being shipped and how broken the descriptions are is a structural market problem — not just a docs issue",
+        "keywords": [
+          "MCP"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "Standard-compliant descriptions achieved 72% selection probability in competitive MCP registries vs. 20% baseline",
+        "about": "Standard-compliant MCP descriptions get 3.6x more agent routing than baseline",
+        "description": "Same underlying functionality, same API — 3.6x more traffic purely from description quality. This reframes API descriptions as a distribution channel.",
+        "keywords": [
+          "MCP"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "Moved from ~20% to ~95% error recovery by restructuring errors for LLM consumption.",
+        "about": "Restructuring error messages for LLM consumption moved agent recovery from 20% to 95%",
+        "description": "The pattern of including recovery steps in error responses is concrete and immediately actionable for any team building agent-facing APIs",
+        "keywords": [
+          "MCP"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "Rather than MCP tools (60-line YAML OpenAPI specs), expose TypeScript interfaces (~15 lines) that agents write code against. Reported 81% token reduction vs. traditional tool-calling.",
+        "about": "Cloudflare's TypeScript interfaces cut agent token use 81% vs YAML tool definitions",
+        "description": "Challenges the default assumption that MCP tools = OpenAPI specs. For typed APIs, letting agents write code against a TypeScript interface may be strictly better.",
+        "keywords": [
+          "MCP",
+          "Cloudflare"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "88.6% of production MCP servers are REST-backed (AutoMCP, arXiv 2507.16044) — it's a semantic layer over existing REST, not a replacement",
+        "about": "88.6% of production MCP servers are just REST APIs with a semantic wrapper",
+        "description": "Deflates the 'MCP requires a full rewrite' objection — the infrastructure is fine, the descriptions are almost certainly not",
+        "keywords": [
+          "MCP",
+          "AutoMCP"
+        ]
+      }
+    ]
+  }
+}
