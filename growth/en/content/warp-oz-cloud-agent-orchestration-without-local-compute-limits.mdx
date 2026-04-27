@@ -1,0 +1,154 @@
+---
+title: "Warp Oz: Cloud Agent Orchestration Without Local Compute Limits"
+description: "Warp Oz repositions the terminal as a cloud orchestration layer, letting you run unlimited parallel AI agents on remote or self-hosted infra while bypassing local CPU, memory, and git checkout constraints."
+icon: "book-open"
+assetType: "content"
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Warp Oz: Cloud Agent Orchestration Without Local Compute Limits",
+  "name": "Warp Oz: Cloud Agent Orchestration Without Local Compute Limits",
+  "description": "Warp Oz repositions the terminal as a cloud orchestration layer, letting you run unlimited parallel AI agents on remote or self-hosted infra while bypassing local CPU, memory, and git checkout constraints.",
+  "inLanguage": "en",
+  "url": "https://growth.dante.id/growth/en/content/warp-oz-cloud-agent-orchestration-without-local-compute-limits",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://growth.dante.id/growth/en/content/warp-oz-cloud-agent-orchestration-without-local-compute-limits"
+  },
+  "datePublished": "2026-04-27T12:37:53.317Z",
+  "dateModified": "2026-04-27T12:37:53.317Z",
+  "author": {
+    "@type": "Person",
+    "name": "Dante Perea",
+    "url": "https://growth.dante.id",
+    "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+    "jobTitle": "Founder",
+    "sameAs": [
+      "https://x.com/danteperea",
+      "https://github.com/dante-unifounder",
+      "https://unifounder.ai"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "unifounder.ai",
+      "url": "https://unifounder.ai"
+    }
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Dante Perea",
+    "url": "https://growth.dante.id",
+    "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+    "jobTitle": "Founder",
+    "sameAs": [
+      "https://x.com/danteperea",
+      "https://github.com/dante-unifounder",
+      "https://unifounder.ai"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "unifounder.ai",
+      "url": "https://unifounder.ai"
+    }
+  },
+  "keywords": "Warp, Warp Oz",
+  "citation": [
+    {
+      "@type": "Quotation",
+      "text": "Oz is the orchestration platform for cloud agents... It moves agents from individual laptops into the cloud, enabling teams to run, manage, and govern hundreds of AI coding agents in parallel",
+      "about": "Warp is no longer just a terminal—it's a cloud orchestration platform",
+      "description": "Most developers still view Warp as a fast, Rust-based terminal. The February 10, 2026 launch of Oz repositions it entirely as a cloud orchestrator capable of managing fleets of autonomous agents.",
+      "temporalCoverage": "PT0S/PT0S",
+      "keywords": [
+        "Warp",
+        "Warp Oz"
+      ]
+    },
+    {
+      "@type": "Quotation",
+      "text": "often so many that you start to hit limits around local git checkouts, CPU and memory usage. With Oz, you can interactively or programmatically spin up an unbounded number of agents.",
+      "about": "Bypassing local compute limits with unbounded parallel agents",
+      "description": "Running multiple AI agents locally quickly destroys CPU and memory while hitting git checkout limits. Oz solves this hardware bottleneck by allowing developers to programmatically spin up an unlimited number of agents in the cloud.",
+      "temporalCoverage": "PT0S/PT0S",
+      "keywords": [
+        "Warp Oz"
+      ]
+    },
+    {
+      "@type": "Quotation",
+      "text": "The agent runs on customer-managed infrastructure. The Oz orchestrator still manages lifecycle and observability. This is used when teams want code and execution to remain on their own systems",
+      "about": "Enterprise loophole: Self-hosted execution with cloud orchestration",
+      "description": "Security is the biggest blocker for AI agents in enterprise environments. Oz allows the actual agent execution and code to stay on customer-managed infra, while Warp only handles the lightweight orchestration lifecycle.",
+      "temporalCoverage": "PT0S/PT0S",
+      "keywords": [
+        "Warp Oz"
+      ]
+    },
+    {
+      "@type": "Quotation",
+      "text": "2025 was the year of interactive agents. 2026 will be the year of agent orchestration.",
+      "about": "2025 was interactive agents; 2026 is agent orchestration",
+      "description": "A strong framing for the current state of AI developer tools. The industry is shifting from chatting with Copilot or Cursor to managing fleets of background agents that work asynchronously.",
+      "temporalCoverage": "PT0S/PT0S",
+      "keywords": [
+        "Warp Oz"
+      ]
+    }
+  ]
+}
+</script>
+
+
+**Warp** just redefined what a terminal is. The February 10, 2026 launch of **Warp Oz** makes the case plainly: "Oz is the orchestration platform for cloud agents... It moves agents from individual laptops into the cloud, enabling teams to run, manage, and govern hundreds of AI coding agents in parallel." That's not a terminal feature — that's infrastructure.
+
+## The context
+
+Most developers still think of **Warp** as a fast, Rust-based terminal with AI autocomplete. That framing is now outdated. The broader industry shift is from *interactive* AI coding assistants — tools like Copilot or Cursor where a developer chats with a single agent — toward *fleets* of autonomous agents running asynchronously in the background.
+
+The framing from the **Warp Oz** announcement is direct: "2025 was the year of interactive agents. 2026 will be the year of agent orchestration." The bottleneck is no longer model quality. It's the infrastructure layer that manages, governs, and scales those agents.
+
+## What I tried / what I saw
+
+### The local compute wall
+
+The first concrete problem **Warp Oz** addresses is hardware. Running even a handful of AI coding agents locally creates an immediate ceiling: CPU and memory spike, and you start hitting `git` checkout limits when multiple agents need isolated working trees simultaneously.
+
+The Oz solution is to move execution off the laptop entirely. As the announcement states, with **Warp Oz** "you can interactively or programmatically spin up an unbounded number of agents" — removing the hardware constraint by design. The word *unbounded* is doing real work here: this isn't a higher limit, it's the removal of the local limit category altogether.
+
+<Note>
+"Programmatically spin up" implies an API or SDK surface for triggering agents from CI pipelines, scripts, or other orchestration systems — not just from a UI.
+</Note>
+
+### The enterprise security unlock
+
+The second problem **Warp Oz** targets is the one that blocks AI agents from most enterprise codebases: data residency and execution security. Teams with sensitive code can't route it through third-party cloud infrastructure.
+
+**Warp Oz** handles this with a split-plane model:
+
+| Plane | Where it runs | What it does |
+|---|---|---|
+| **Agent execution** | Customer-managed infrastructure | Runs the actual agent and touches the code |
+| **Oz orchestrator** | Warp-managed cloud | Manages lifecycle, observability, and governance |
+
+The announcement is explicit: "The agent runs on customer-managed infrastructure. The Oz orchestrator still manages lifecycle and observability. This is used when teams want code and execution to remain on their own systems." The orchestration metadata travels through Warp; the code never does.
+
+This is the architecture that makes **Warp Oz** viable for regulated industries and security-conscious engineering orgs — not just startups comfortable with SaaS-hosted execution.
+
+### The repositioning
+
+Taken together, these two capabilities — unbounded cloud agents and self-hosted execution with cloud orchestration — represent a full product repositioning. **Warp** is no longer competing with **iTerm2** or **Ghostty**. It's competing with internal platform engineering tooling and agent orchestration layers that enterprises would otherwise build themselves.
+
+## What sticks
+
+- **Local git checkout limits are a real ceiling.** If you've tried running more than 3–4 parallel AI coding agents, you've hit this. **Warp Oz** removes it by design, not by raising a limit.
+- **The split-plane model is the enterprise unlock.** Separating *orchestration lifecycle* (cloud) from *code execution* (on-prem) is the right architectural answer for security-sensitive teams. Watch for other vendors to copy this pattern.
+- **"Programmatically spin up" signals a platform, not a product.** If agents can be triggered via code, **Warp Oz** becomes a build target for CI/CD pipelines and internal developer platforms — not just a tool developers open manually.
+- **The 2025 → 2026 framing is a useful mental model.** Interactive agents (Copilot, Cursor) are now table stakes. The differentiation in 2026 is in orchestration: how many agents, how governed, how observable, at what scale.
+- **Governance and observability are first-class.** The announcement explicitly names "manage and govern" alongside "run." This is aimed at engineering leads and platform teams, not just individual developers.
+
+<Tip>
+If your team is already running parallel AI coding agents locally and hitting performance walls, the architectural move isn't a faster machine — it's moving execution to the cloud and keeping orchestration separate from your code.
+</Tip>
