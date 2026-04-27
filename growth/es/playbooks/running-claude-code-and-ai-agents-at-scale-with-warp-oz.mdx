@@ -1,0 +1,225 @@
+---
+title: "Ejecutando Claude Code y agentes de IA a escala con Warp Oz"
+description: "Warp Oz permite a las empresas orquestar cientos de agentes de IA en paralelo — incluyendo Claude Code y Codex — con orquestación en la nube, ejecución on-prem y composición agente-a-agente para flujos de trabajo de ingeniería complejos."
+icon: "rocket"
+assetType: "playbook"
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "headline": "Ejecutando Claude Code y agentes de IA a escala con Warp Oz",
+  "name": "Ejecutando Claude Code y agentes de IA a escala con Warp Oz",
+  "description": "Warp Oz permite a las empresas orquestar cientos de agentes de IA en paralelo — incluyendo Claude Code y Codex — con orquestación en la nube, ejecución on-prem y composición agente-a-agente para flujos de trabajo de ingeniería complejos.",
+  "inLanguage": "es",
+  "url": "https://growth.dante.id/growth/es/playbooks/running-claude-code-and-ai-agents-at-scale-with-warp-oz",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://growth.dante.id/growth/es/playbooks/running-claude-code-and-ai-agents-at-scale-with-warp-oz"
+  },
+  "datePublished": "2026-04-27T09:56:36.757Z",
+  "dateModified": "2026-04-27T09:56:36.757Z",
+  "author": {
+    "@type": "Person",
+    "name": "Dante Perea",
+    "url": "https://growth.dante.id",
+    "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+    "jobTitle": "Founder",
+    "sameAs": [
+      "https://x.com/danteperea",
+      "https://github.com/dante-unifounder",
+      "https://unifounder.ai"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "unifounder.ai",
+      "url": "https://unifounder.ai"
+    }
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Dante Perea",
+    "url": "https://growth.dante.id",
+    "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+    "jobTitle": "Founder",
+    "sameAs": [
+      "https://x.com/danteperea",
+      "https://github.com/dante-unifounder",
+      "https://unifounder.ai"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "unifounder.ai",
+      "url": "https://unifounder.ai"
+    }
+  },
+  "keywords": "Claude Code, Codex, OpenCode, Warp Oz",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Run Claude Code natively inside Warp with rich UI",
+      "text": "Developers don't have to abandon their favorite CLI agents; Oz wraps third-party tools like Claude Code and Codex with rich input, notifications, and remote session control.",
+      "citation": {
+        "@type": "Quotation",
+        "text": "Use Claude Code, Codex, OpenCode, and other CLI coding agents in Warp with rich input, notifications, code review, and remote session control.",
+        "about": "Run Claude Code natively inside Warp with rich UI",
+        "description": "Developers don't have to abandon their favorite CLI agents; Oz wraps third-party tools like Claude Code and Codex with rich input, notifications, and remote session control.",
+        "temporalCoverage": "PT0S/PT0S",
+        "keywords": [
+          "Warp Oz",
+          "Claude Code",
+          "Codex",
+          "OpenCode"
+        ]
+      }
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Agent Composition: AI agents calling other AI agents",
+      "text": "Highlights advanced workflow capabilities where agents aren't just single-threaded but can trigger other specialized agents to complete complex, multi-step engineering tasks.",
+      "citation": {
+        "@type": "Quotation",
+        "text": "Agent Composition (multiple agents can call each other, creating complex workflows)",
+        "about": "Agent Composition: AI agents calling other AI agents",
+        "description": "Highlights advanced workflow capabilities where agents aren't just single-threaded but can trigger other specialized agents to complete complex, multi-step engineering tasks.",
+        "temporalCoverage": "PT0S/PT0S",
+        "keywords": [
+          "Warp Oz"
+        ]
+      }
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Enterprise Self-Hosted Execution with Cloud Orchestration",
+      "text": "Solves the biggest enterprise blocker for AI agents (data privacy) by splitting the orchestrator (cloud) from the execution environment (on-prem/customer-managed).",
+      "citation": {
+        "@type": "Quotation",
+        "text": "For enterprises, agents can run on customer-managed infrastructure while the Oz orchestrator still manages lifecycle and observability.",
+        "about": "Enterprise Self-Hosted Execution with Cloud Orchestration",
+        "description": "Solves the biggest enterprise blocker for AI agents (data privacy) by splitting the orchestrator (cloud) from the execution environment (on-prem/customer-managed).",
+        "temporalCoverage": "PT0S/PT0S",
+        "keywords": [
+          "Warp Oz"
+        ]
+      }
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "The laptop is no longer the bottleneck for AI agents",
+      "text": "Challenges the current paradigm of running local agents (like Cursor), pushing the narrative that true engineering scale requires cloud orchestration to run hundreds of agents in parallel.",
+      "citation": {
+        "@type": "Quotation",
+        "text": "It moves agents from individual laptops into the cloud, enabling teams to run, manage, and govern hundreds of AI coding agents in parallel",
+        "about": "The laptop is no longer the bottleneck for AI agents",
+        "description": "Challenges the current paradigm of running local agents (like Cursor), pushing the narrative that true engineering scale requires cloud orchestration to run hundreds of agents in parallel.",
+        "temporalCoverage": "PT0S/PT0S",
+        "keywords": [
+          "Warp Oz"
+        ]
+      }
+    }
+  ]
+}
+</script>
+
+
+## ¿Qué problema resuelve?
+
+Ejecutar agentes de codificación de IA en las laptops individuales de los desarrolladores — el estándar actual con herramientas como **Cursor** o sesiones locales de **Claude Code** — crea un techo duro para el rendimiento del equipo de ingeniería. **Warp Oz** rompe ese techo moviendo la ejecución de los agentes a la nube, permitiendo que los equipos orquesten cientos de agentes en paralelo mientras mantienen controles de gobernanza, observabilidad y privacidad de datos.
+
+Para las empresas en particular, el obstáculo no es la capacidad — es la confianza: el código sensible no puede salir del perímetro. Oz aborda esto separando el orquestador (gestionado en la nube) del entorno de ejecución (infraestructura gestionada por el cliente), de modo que las dos preocupaciones nunca entran en conflicto.
+
+## Antes de empezar
+
+- Una cuenta de **Warp** con acceso a la capa de orquestación **Warp Oz**
+- Al menos un agente de codificación CLI que quieras escalar: **Claude Code**, **Codex** u **OpenCode**
+- Claridad sobre tu límite de ejecución: solo en la nube vs. híbrido (orquestador en la nube + runners on-prem)
+- Para despliegues empresariales: infraestructura gestionada por el cliente aprovisionada y accesible por el orquestador de Oz
+
+## Pasos
+
+<Steps>
+  <Step title="Elegí tu modelo de ejecución">
+    Decidí si los agentes van a correr completamente en la nube de Warp o en tu propia infraestructura.
+
+    - **Ejecución en la nube** — la más rápida para arrancar; Oz gestiona el ciclo de vida completo.
+    - **Ejecución híbrida / on-prem** — los agentes corren dentro de tu perímetro; el orquestador de Oz sigue gestionando el ciclo de vida y la observabilidad desde la nube. Este es el camino recomendado para cualquier equipo con requisitos de residencia de datos.
+
+    <Note>
+      El orquestador de Oz y el runner del agente están desacoplados intencionalmente. Podés empezar con ejecución en la nube y migrar los runners on-prem más adelante sin cambiar las definiciones de tu workflow.
+    </Note>
+  </Step>
+
+  <Step title="Conectá tus agentes de codificación CLI a Warp Oz">
+    **Claude Code**, **Codex** y **OpenCode** corren nativamente dentro de Warp Oz. No reemplazás estas herramientas — las envolvés.
+
+    Oz agrega una capa de UI enriquecida sobre cada sesión de agente CLI:
+
+    | Capacidad | Qué te da |
+    |---|---|
+    | Input enriquecido | Prompts estructurados, adjuntos de archivos, inyección de contexto |
+    | Notificaciones | Actualizaciones de estado en tiempo real por sesión de agente |
+    | Revisión de código | Revisión de diffs inline sin salir del orquestador |
+    | Control remoto de sesión | Pausar, reanudar o redirigir cualquier sesión de agente en ejecución |
+
+    Conectá un agente seleccionándolo del registro de agentes de Oz y apuntándolo a un repo objetivo o definición de tarea.
+  </Step>
+
+  <Step title="Escalá a ejecución de agentes en paralelo">
+    Una vez que una sesión de agente individual está funcionando, Oz convierte el escalado horizontal en una decisión de configuración, no en un proyecto de infraestructura.
+
+    - Definí el alcance de la tarea (por ejemplo, "ejecutar este refactor en los 40 microservicios").
+    - Establecé límites de concurrencia y cuotas de recursos por agente.
+    - Lanzá: Oz crea y gestiona cientos de instancias de agentes, cada una con su propio ciclo de vida, logs y artefactos de salida.
+
+    <Tip>
+      Empezá con un fan-out pequeño (5–10 agentes) en un repo no crítico para validar tu definición de tarea antes de escalar a cientos.
+    </Tip>
+  </Step>
+
+  <Step title="Componé agentes para workflows de múltiples pasos">
+    Para tareas de ingeniería complejas, las ejecuciones de un solo agente no son suficientes. Oz soporta **Agent Composition** — agentes que llaman a otros agentes especializados como sub-tareas, creando workflows de múltiples pasos a partir de bloques de construcción reutilizables.
+
+    Patrón de ejemplo:
+
+    ```
+    Orchestrator agent
+    ├── calls → Security scanner agent (per service)
+    ├── calls → Test generator agent (per changed file)
+    └── calls → PR description agent (per branch)
+    ```
+
+    Definí la composición en tu configuración de workflow especificando qué tipos de agentes puede invocar un agente padre y bajo qué condiciones. Oz se encarga del enrutamiento, la agregación de resultados y el manejo de errores a lo largo del grafo.
+  </Step>
+
+  <Step title="Monitoreá y gobernás desde el dashboard de Oz">
+    Cada sesión de agente — ya sea corriendo en la nube de Warp o en tu propia infraestructura — expone eventos de ciclo de vida, logs y salidas de vuelta al orquestador de Oz.
+
+    - Revisá el estado por agente en tiempo real.
+    - Inspeccioná los diffs de código antes de mergear cualquier salida generada por agentes.
+    - Usá el control remoto de sesión para intervenir en una sesión en ejecución sin terminarla.
+  </Step>
+</Steps>
+
+## Errores comunes
+
+<Warning>
+**Saltarse la decisión del límite de ejecución al principio.** Si empezás con runners en la nube y después descubrís que tu política de seguridad requiere ejecución on-prem, migrar a mitad del proyecto es doloroso. Definí tu modelo de ejecución antes de escribir cualquier definición de workflow.
+
+**Sobre-componer grafos de agentes demasiado pronto.** Agent Composition es poderoso, pero un grafo de agentes profundamente anidado es difícil de depurar cuando falla un agente en el medio de la cadena. Construí y validá cada tipo de agente de forma independiente antes de conectarlos entre sí.
+
+**Tratar a los agentes en paralelo como independientes.** Cientos de agentes escribiendo en el mismo repo simultáneamente van a producir conflictos de merge a escala. Diseñá la descomposición de tareas de modo que cada agente tenga un alcance no superpuesto (por ejemplo, un agente por servicio, un agente por archivo).
+</Warning>
+
+## Lo que aprendimos
+
+1. **La laptop es la unidad de escala equivocada para los agentes de IA.** Ejecutar **Claude Code** localmente está bien para tareas individuales, pero los equipos que necesitan aplicar cambios impulsados por IA en decenas de servicios simultáneamente necesitan orquestación en la nube — no laptops más potentes. Warp Oz reencuadra al agente como un recurso de flota, no como una herramienta personal.
+
+2. **La privacidad de datos y la orquestación en la nube no son mutuamente excluyentes.** La separación arquitectónica entre el orquestador de Oz (nube) y el entorno de ejecución (gestionado por el cliente) desbloquea directamente la adopción empresarial. El código sensible nunca tiene que salir del perímetro para que el equipo obtenga observabilidad completa y gestión del ciclo de vida.
+
+3. **Agent Composition desbloquea workflows que las ejecuciones de un solo agente no pueden manejar.** La capacidad de los agentes para llamar a otros agentes especializados — escáneres de seguridad, generadores de tests, escritores de PRs — significa que los procesos de ingeniería complejos y de múltiples pasos pueden codificarse como grafos reutilizables y componibles en lugar de prompts monolíticos.

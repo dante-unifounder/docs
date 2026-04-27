@@ -19,7 +19,8 @@
               {
                 "group": "Playbooks",
                 "pages": [
-                  "growth/en/playbooks/multilingual-seo-architecture-in-mintlify-using-gemini-and-claude"
+                  "growth/en/playbooks/multilingual-seo-architecture-in-mintlify-using-gemini-and-claude",
+                  "growth/en/playbooks/running-claude-code-and-ai-agents-at-scale-with-warp-oz"
                 ]
               },
               {
@@ -51,7 +52,8 @@
               {
                 "group": "Playbooks",
                 "pages": [
-                  "growth/es/playbooks/multilingual-seo-architecture-in-mintlify-using-gemini-and-claude"
+                  "growth/es/playbooks/multilingual-seo-architecture-in-mintlify-using-gemini-and-claude",
+                  "growth/es/playbooks/running-claude-code-and-ai-agents-at-scale-with-warp-oz"
                 ]
               },
               {
