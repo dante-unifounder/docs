@@ -552,5 +552,102 @@
         "keywords": []
       }
     ]
+  },
+  "growth/en/content/per-url-programmatic-seo-one-research-agent-per-page": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Per-URL Programmatic SEO: One Research Agent Per Page",
+    "name": "Per-URL Programmatic SEO: One Research Agent Per Page",
+    "description": "Programmatic SEO didn't die, templates did, and the replacement runs one autonomous research agent per URL with the cost-per-ranked-page math going down even as cost-per-page jumped 500 to 5000 times.",
+    "inLanguage": "en",
+    "url": "https://growth.dante.id/growth/en/content/per-url-programmatic-seo-one-research-agent-per-page",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://growth.dante.id/growth/en/content/per-url-programmatic-seo-one-research-agent-per-page"
+    },
+    "datePublished": "2026-04-28T13:53:41.521Z",
+    "dateModified": "2026-04-28T13:53:41.521Z",
+    "author": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "keywords": "Harbor SEO, Sight AI",
+    "citation": [
+      {
+        "@type": "Quotation",
+        "text": "The root cause of template programmatic SEO failure is that all pages in a campaign share the same knowledge base. The AI has identical information about every page it writes. Unique content cannot emerge from identical inputs.",
+        "about": "Unique content cannot emerge from identical inputs — the one-line death certificate of templated programmatic SEO",
+        "description": "Single sentence that explains why templates can never be saved no matter how clever the prose. It reframes the problem from 'write better' to 'change the inputs.' Maps to the named-gap hook pattern.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "Travel publishers were particularly hard hit, with 32% (213 sites out of 671 analyzed) losing more than 90% of their organic traffic after the HCU.",
+        "about": "32% of travel publishers lost >90% of organic traffic after HCU",
+        "description": "Brutal hard number from a specific vertical. 213 of 671 sites near-zeroed out. Lands instantly in any 'is templated content dead' debate.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "Old model: ~$0.001 per page... Most got deindexed = ~$0 useful traffic. New model: $0.50–$5 per page... But the pages actually rank.",
+        "about": "The cost per page went up 500–5000x but the cost per ranked page went down",
+        "description": "Counterintuitive economic reframe. Most operators see the LLM cost increase and conclude programmatic SEO is dead. The math actually got better because deindex rate went from ~80% to near zero.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "Sight AI runs 13+ specialized sub-agents per page, handling competitive analysis, entity extraction, internal linking, and schema before a single sentence of body copy is written.",
+        "about": "Sight AI runs 13+ specialized sub-agents per single URL",
+        "description": "Concrete architectural detail that names the new floor for production-grade programmatic SEO. Specific enough to use as a benchmark when evaluating any AI SEO platform.",
+        "keywords": [
+          "Sight AI",
+          "Harbor SEO"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "In March of 2024, Google incorporated what was previously the Helpful Content ranking system into its core ranking systems.",
+        "about": "HCU was folded into core ranking — there's no separate update left to recover from",
+        "description": "Important fact most SEO operators miss. They keep waiting for HCU to be rolled back or for a new update to fix things. It's been integrated into core since March 2024.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "The best multi-agent systems use structured data formats between agents — JSON objects, semantic schemas, or similar formats that preserve context and intent, which is superior to systems that just pass plain text between agents.",
+        "about": "Best multi-agent SEO systems pass JSON between agents, not prose",
+        "description": "Sharp architectural distinction that separates production-grade systems from glorified prompt chains. Most agentic SEO tools fail this test silently.",
+        "keywords": []
+      }
+    ]
   }
 }

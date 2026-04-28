@@ -1,0 +1,48 @@
+---
+title: "Per-URL Programmatic SEO: One Research Agent Per Page"
+description: "Programmatic SEO didn't die, templates did, and the replacement runs one autonomous research agent per URL with the cost-per-ranked-page math going down even as cost-per-page jumped 500 to 5000 times."
+icon: "layers"
+assetType: "content"
+---
+
+The conventional view is that programmatic SEO died with Google's Helpful Content Update. In fact, the templated implementation died. The architecture that replaces it runs one autonomous research agent per URL, and the math actually got better, not worse.
+
+## The context
+
+Programmatic SEO at Zillow, TripAdvisor, G2, and Yelp followed the same pattern for a decade: pick a high-volume keyword shape, build one HTML template, loop through a database, ship millions of pages. The pages had real data inside but identical structure outside. They were structural clones with swapped variables.
+
+Google's Helpful Content Update was specifically designed to detect that fingerprint. The damage was uneven but devastating where it landed. 32 percent of travel publishers, which is 213 of 671 sites analyzed, lost more than 90 percent of organic traffic post-HCU. Digital publishers across other niches saw 30 to 90 percent traffic losses through 2024 and 2025. **G2** took measurable hits in October 2023 from spam updates targeting versus-pages.
+
+The recovery story most operators are waiting for isn't coming. In March 2024, Google folded the Helpful Content ranking system into core. There is no separate update left to recover from. The August 2025 spam update that ran for 26 days, explicitly aimed at "large-scale, auto-generated content, thin programmatic pages," was a continuation, not a one-time event.
+
+## What I tried / what I saw
+
+The root cause of templated programmatic SEO failure is structural, not stylistic. All pages in a templated campaign share the same knowledge base. The AI has identical information about every page it writes. Unique content cannot emerge from identical inputs.
+
+That sentence is the death certificate. You cannot rephrase your way out of it. The fix is to give each page its own research before any prose gets written.
+
+**Sight AI** runs 13+ specialized sub-agents per single URL. Competitive analysis pulls the top 10 ranking pages for that exact query. Entity extraction identifies the people, places, products that should appear on this specific page. Internal linking decides which other pages on the site this one connects to. Schema builds JSON-LD structured data matching the content type. Only after that research swarm completes does a body writer produce prose, informed by everything the research agents found. **Harbor SEO** positions the same model in one line: "Before writing a single word for any given URL, Harbor launches an autonomous research agent specific to that page."
+
+The architectural detail that separates production-grade systems from prompt chains is how the agents communicate. The best multi-agent systems pass JSON objects or semantic schemas between agents, not plain text. A research agent's output is not a paragraph for the writer to rephrase, it is a structured object the writer queries and reasons over. Most "agentic SEO" tools fail this test silently, which is why their output feels templated even when the marketing claims otherwise.
+
+The economic shift looks like a cost increase if you read it wrong. Templated production cost roughly $0.001 per page (run a script, fill a template). Per-URL agent production costs $0.50 to $5 per page (LLM tokens × 13 agents × research compute). That is 500 to 5000 times more expensive per page. But the deindex rate on templated pages now sits near 80 percent, and on quality per-URL implementations near zero. The cost per page went up. The cost per ranked page went down.
+
+Productized platforms now run $2,000 per month at the entry tier and $30,000 plus at enterprise, with most mid-market teams paying $4,000 to $10,000. Compute scales horizontally, which is the part agencies cannot match. Your 100th URL costs the same to manage as your first.
+
+## What sticks
+
+1. **Templates are dead, the strategy is fine.** Programmatic SEO is alive. The variable-substitution implementation is not. Stop trying to fix the template, change the architecture.
+
+2. **Inputs, not prose, are the unique-content lever.** All pages sharing one knowledge base means the AI knows the same things about every URL. Per-URL research is the only path to genuinely unique output.
+
+3. **There is no HCU recovery update coming.** It folded into core in March 2024. The site-wide classifier keeps applying. Operators waiting for a rollback are waiting for nothing.
+
+4. **JSON between agents, not prose.** If your "multi-agent" system passes paragraphs around, it is a prompt chain wearing the wrong label. Production systems pass structured data.
+
+5. **The cost per ranked page dropped.** The 500 to 5000 times per-page cost increase is real, and it is also the wrong number to look at. Index rate matters more than unit cost.
+
+The ranking surface is no longer just blue links. It is being cited in AI Overviews, ChatGPT answers, Perplexity summaries, and Gemini responses. Brands skipping per-URL research are not just losing Google traffic, they are becoming invisible to the agents now responsible for 88 percent of organic search activity.
+
+<Tip>
+Unique content cannot emerge from identical inputs. The architecture is the moat, not the writing.
+</Tip>
