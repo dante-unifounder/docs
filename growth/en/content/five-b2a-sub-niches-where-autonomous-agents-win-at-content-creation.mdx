@@ -26,11 +26,11 @@ The reason these five sub-niches compound for autonomous agents and not for huma
 
 | Sub-niche | Human-team cost | Agent cost | Volume floor |
 |-----------|-----------------|-----------|--------------|
-| Per-URL programmatic SEO | $50–$500 per page (writer + editor) | $0.50–$5 per page (research swarm) | 1,000+ URLs |
-| SDR outreach | $50K–$150K per SDR per year | $2K–$5K per month per agent | 10K+ contacts |
+| Per-URL programmatic SEO | $50 to $500 per page (writer + editor) | $0.50 to $5 per page (research swarm) | 1,000+ URLs |
+| SDR outreach | $50K to $150K per SDR per year | $2K to $5K per month per agent | 10K+ contacts |
 | API documentation | weeks per major version | continuous, per-commit regeneration | every API change |
-| Recruitment content | $100–$500 per role description + outreach | pennies per personalized message | dozens of roles, hundreds of candidates |
-| Voice AI scripts | $200–$800 per script variant | per-call regeneration from transcripts | thousands of variants |
+| Recruitment content | $100 to $500 per role description plus outreach | pennies per personalized message | dozens of roles, hundreds of candidates |
+| Voice AI scripts | $200 to $800 per script variant | per-call regeneration from transcripts | thousands of variants |
 
 The mechanism: each sub-niche has a content surface where the volume of personalized output exceeds what any human team can economically produce, and where an agent reader (search engine, evaluation pipeline, ATS, voice platform) consumes the output and feeds signal back. That feedback loop is the moat. Generation alone is just a feature. The cost collapse on the input side ([Stratechery on the AI cost curves](https://stratechery.com/2025/the-end-of-the-beginning-of-the-end/)) means the work that used to be staffed is now the part that's commoditized; the work that used to be assumed (closing the loop on what shipped, what ranked, what converted) is now where the differentiation lives.
 
@@ -82,10 +82,10 @@ The strongest counterargument is that humans still want to be sold to by humans,
     Three components in production: a generation step that produces a unit of content, a publication step that ships it where a real reader (human or agent) consumes it, and a feedback step that ingests the response signal and feeds it back into the next generation cycle. SDR agents that read reply rates, programmatic SEO systems that read SERP rank, voice AI that reads call drop points: all closed loops. A "content generator" that emits Markdown and stops is open-loop and structurally weaker.
   </Accordion>
   <Accordion title="Is per-URL programmatic SEO actually working in 2026?" icon="circle-help">
-    Yes, on quality implementations. The deindex rate on templated programmatic pages post-HCU sits near 80 percent. The deindex rate on per-URL research-agent implementations sits near zero. Cost per page went from about $0.001 (templated) to $0.50–$5 (agent), but cost per ranked page dropped because the index rate inverted. The strategy didn't die, the templated execution did.
+    Yes, on quality implementations. The deindex rate on templated programmatic pages post-HCU sits near 80 percent. The deindex rate on per-URL research-agent implementations sits near zero. Cost per page went from about $0.001 (templated) to $0.50 to $5 (agent), but cost per ranked page dropped because the index rate inverted. The strategy didn't die, the templated execution did.
   </Accordion>
   <Accordion title="Are autonomous SDR agents replacing human SDRs?" icon="circle-help">
-    Replacing the high-volume top-of-funnel work, yes. The economics are stark: $50K–$150K per human SDR per year ([Bridge Group SDR Metrics](https://blog.bridgegroupinc.com/sdr-metrics)) versus $2K–$5K per month per agent. The work that survives for human SDRs is the multi-touch, relationship-heavy late-funnel work where context, judgment, and trust matter more than throughput.
+    Replacing the high-volume top-of-funnel work, yes. The economics are stark: $50K to $150K per human SDR per year ([Bridge Group SDR Metrics](https://blog.bridgegroupinc.com/sdr-metrics)) versus $2K to $5K per month per agent. The work that survives for human SDRs is the multi-touch, relationship-heavy late-funnel work where context, judgment, and trust matter more than throughput.
   </Accordion>
   <Accordion title="Why is API documentation a B2A surface?" icon="circle-help">
     Because the agent evaluating your API is the first reader, not the human developer. If your docs lack machine-readable schemas, clear authentication flows, and rate limits sized for agent volume, the evaluating agent silently rules you out. Most product teams still treat agent traffic as a noise category rather than a buyer category. That assumption is what makes documentation the highest-leverage and most-neglected B2A surface.
@@ -94,10 +94,10 @@ The strongest counterargument is that humans still want to be sold to by humans,
     Three places. First, regulated workflows where a credentialed human must sign off (pharma, healthcare, legal, financial advice). Second, categories where the moat was distribution or brand rather than production cost (incumbent CRMs, marketplaces, registries). Third, anywhere the operator confuses a generation tool with a closed-loop system: shipping more output without reading back the result is the previous generation of content tooling.
   </Accordion>
   <Accordion title="What should an indie operator pick first?" icon="circle-help">
-    Per-URL programmatic SEO, then API documentation. Both have low capital requirements (a single operator with $2K–$5K of monthly compute can ship), clean feedback loops (SERP rank for SEO, agent retrieval rate for docs), and immediate revenue or moat impact. Voice AI scripts have the highest enterprise revenue ceiling but require call-center distribution. SDR and recruitment are higher-touch and benefit from existing customer access.
+    Per-URL programmatic SEO, then API documentation. Both have low capital requirements (a single operator with $2K to $5K of monthly compute can ship), clean feedback loops (SERP rank for SEO, agent retrieval rate for docs), and immediate revenue or moat impact. Voice AI scripts have the highest enterprise revenue ceiling but require call-center distribution. SDR and recruitment are higher-touch and benefit from existing customer access.
   </Accordion>
   <Accordion title="Is there a single product opportunity across all five?" icon="circle-help">
-    Yes: an internal MCP server (or equivalent agent-readable surface) that exposes the company's full state — docs, customer history, compliance rules, infrastructure, support — so any agent in the company can act on it. Most companies fail this test because their state lives in dashboards, Slack threads, and Notion pages no agent can parse. The operator who solves it for one vertical first owns the agent layer of that vertical.
+    Yes: an internal MCP server (or equivalent agent-readable surface) that exposes the company's full state, including docs, customer history, compliance rules, infrastructure, and support, so any agent in the company can act on it. Most companies fail this test because their state lives in dashboards, Slack threads, and Notion pages no agent can parse. The operator who solves it for one vertical first owns the agent layer of that vertical.
   </Accordion>
 </AccordionGroup>
 
