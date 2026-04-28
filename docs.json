@@ -20,7 +20,8 @@
                 "group": "Playbooks",
                 "pages": [
                   "growth/en/playbooks/multilingual-seo-architecture-in-mintlify-using-gemini-and-claude",
-                  "growth/en/playbooks/running-claude-code-and-ai-agents-at-scale-with-warp-oz"
+                  "growth/en/playbooks/running-claude-code-and-ai-agents-at-scale-with-warp-oz",
+                  "growth/en/playbooks/b2a-native-vertical-agents-three-force-convergence"
                 ]
               },
               {
