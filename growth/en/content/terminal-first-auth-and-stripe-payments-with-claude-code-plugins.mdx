@@ -1,0 +1,46 @@
+---
+title: "The Browser Is Optional: Terminal-First Auth and Stripe Payments with Claude Code Plugins"
+description: "Claude Code plugins let you run auth and Stripe checkout entirely from the terminal, with the browser limited to the card input screen."
+icon: "terminal"
+assetType: "content"
+---
+
+Most SaaS products treat the browser as the inevitable UX surface for auth and payment. But once you have **Claude Code** plugin infrastructure, the browser is optional for every step except card input.
+
+## The context
+
+Developer tooling that lives in the terminal carries a contradiction: the onboarding flow typically forces the user out into a browser to sign up, enter payment details, and retrieve an API key, then directs them back to the CLI. That context switch is friction with no technical justification. **Stripe** requires a browser for card input because of PCI compliance. Nothing else in a typical SaaS signup requires one.
+
+A Claude Code plugin can own the entire flow from identity to key provisioning. The browser becomes a single required stop on a trip that is otherwise entirely terminal-native.
+
+## What I tried / what I saw
+
+The demo shows a **Claude Code** plugin for 999x Growth handling a full subscription signup without a browser tab opened by the product.
+
+The plugin starts with a terminal prompt at 17:30:
+
+> Enter your email address to create or connect your 999x Growth account:
+
+The user types an email. The plugin runs a `curl` to `/api/plugin/checkout`, which creates a **Stripe** Checkout session server-side and returns a `checkoutUrl`. The terminal prints the URL. The user opens it, enters card info on Stripe's hosted page, and completes payment.
+
+While the user is on the Stripe page, the plugin polls for confirmation: `status=pending - waiting`. The moment Stripe confirms, the terminal transitions to generating and printing the API key. No redirect. No browser navigation from the product's side. The full flow is terminal, terminal, browser (Stripe only), terminal.
+
+At 20:00 the developer summarized the realization directly: "I never want to use a web browser again. You can do so much with **Claude Code** plugins. I can have you authenticate, send you the Stripe link to pay, and it sets up your entire API key automatically."
+
+The same recording shows why this architecture goes beyond convenience. The product underneath the payment flow is a content knowledge base, described by the developer as: "I have a unique source of truth of all topics I thought about and I posted about, and then I can make a workflow to reformat that information into different channels and different audiences, and I will always avoid duplicates as I will know exactly what I already talked about."
+
+Terminal-first onboarding is consistent with that philosophy. Reduce every input surface to its minimum. Keep the creator inside the tool where they already work.
+
+Asked to identify a 100x improvement to this system, Claude produced this at 17:05: "The system you described is reactive, you query it when you need it. The 100x idea is making it proactive. Trend x Memory matching: monitor what's trending in your niche, semantic-match against your source of truth, surface the draft. You're ahead of the curve. Publish?" The terminal-first checkout is the front door of a system designed to eventually initiate distribution without a human query triggering it.
+
+## What sticks
+
+- **The browser is not the required UX layer.** Stripe's hosted checkout exists for PCI compliance on card input. Auth, plan selection, and API key delivery have no technical reason to leave the terminal.
+- **Plugin-side session creation** removes Stripe.js from the browser entirely. The product controls the session lifecycle server-side, which simplifies client state and reduces surface area for errors.
+- **Polling in the plugin** is more reliable than webhook-to-client signaling for developer tools. The terminal waits on status changes without requiring the user to manage browser state across tabs.
+- **Single source of truth architecture** shifts the product's value from generating content to remembering it. Duplication avoidance becomes structural, not a workflow step the user has to manage.
+- **Trend x Memory matching** is the next architectural layer: a system that monitors topic velocity in a creator's niche, matches it against embedded memory, and surfaces drafts before the creator knows to ask.
+
+<Tip>
+If you build developer-facing tooling that ends with an API key, the only screen that requires a browser is the one Stripe owns. Everything before and after it is terminal I/O.
+</Tip>

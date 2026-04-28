@@ -362,5 +362,106 @@
         "keywords": []
       }
     ]
+  },
+  "growth/en/content/terminal-first-auth-and-stripe-payments-with-claude-code-plugins": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Browser Is Optional: Terminal-First Auth and Stripe Payments with Claude Code Plugins",
+    "name": "The Browser Is Optional: Terminal-First Auth and Stripe Payments with Claude Code Plugins",
+    "description": "Claude Code plugins let you run auth and Stripe checkout entirely from the terminal, with the browser limited to the card input screen.",
+    "inLanguage": "en",
+    "url": "https://growth.dante.id/growth/en/content/terminal-first-auth-and-stripe-payments-with-claude-code-plugins",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://growth.dante.id/growth/en/content/terminal-first-auth-and-stripe-payments-with-claude-code-plugins"
+    },
+    "datePublished": "2026-04-28T11:42:47.528Z",
+    "dateModified": "2026-04-28T11:42:47.528Z",
+    "author": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "keywords": "Claude Code, MCP, Stripe",
+    "citation": [
+      {
+        "@type": "Quotation",
+        "text": "[silence: dev types 'im doing all these because then i have a unique source of truth of all topics i thought about and i posted about and then i can make a workflow to reformat that information into different channels and different audiences and i will always avoid duplicates as i will know exactly what i already talked about']",
+        "about": "The value of a 'single source of truth' for content creators",
+        "description": "The dev articulates a clear product vision: building a system that acts as a single source of truth for a creator's thoughts, allowing them to repurpose content across channels while avoiding duplication. It shifts the focus from just generating content to managing a personal knowledge base.",
+        "keywords": [
+          "Claude Code",
+          "MCP"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "[silence: screen shows Claude's response: 'The system you described is reactive - you query it when you need it. The 100x idea is making it proactive. The idea: Trend x Memory matching... Monitor what's trending NOW in your niche... Semantic match against your source of truth... You're ahead of the curve. Here's a draft. Publish?']",
+        "about": "AI suggests a 100x product pivot: Proactive Trend x Memory matching",
+        "description": "The dev asks Claude for a radical idea to increase value 100x. Claude suggests shifting the product from a reactive knowledge base to a proactive system that matches real-time trends against the creator's embedded memory, automatically drafting relevant content.",
+        "keywords": [
+          "Claude Code"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "[silence: terminal prompts 'Enter your email address to create or connect your 999x Growth account:', dev enters email, terminal runs curl command to /api/plugin/checkout and returns a checkoutUrl]",
+        "about": "Initiating Stripe checkout directly from a Claude Code plugin",
+        "description": "Demonstrates how a custom Claude Code plugin can prompt the user for an email, make an API call to generate a Stripe checkout session, and provide the URL directly in the terminal.",
+        "keywords": [
+          "Claude Code",
+          "Stripe"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "No quiero usar nunca más en mi puta vida un web browser. Se pueden hacer muchas cosas con los plugins de Claude Code. Y puedo ponerte para que te autentiques y te mando el link de Stripe para que me pagues y ya te setea todo el API key y todo.",
+        "about": "Never using a web browser again: Terminal-first Stripe checkout flow",
+        "description": "The dev realizes that with Claude Code plugins, you can keep users entirely in the terminal for complex flows like authentication and payment, only popping out to the browser for the actual credit card input, then returning seamlessly.",
+        "keywords": [
+          "Claude Code",
+          "Stripe"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "[silence: screen shows Stripe 'Payment complete' page, then terminal automatically updates from 'waiting...' to generating the API key]",
+        "about": "End-to-end Stripe payment detection in Claude Code terminal",
+        "description": "Shows the seamless integration between a web-based Stripe checkout and a terminal application. The terminal polls for the payment status and immediately proceeds once the payment is successful in the browser.",
+        "keywords": [
+          "Stripe",
+          "Claude Code"
+        ]
+      }
+    ]
   }
 }
