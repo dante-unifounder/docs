@@ -463,5 +463,94 @@
         ]
       }
     ]
+  },
+  "growth/en/content/five-b2a-sub-niches-where-autonomous-agents-win-at-content-creation": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Five B2A Sub-Niches Where Autonomous Agents Win at Content Creation",
+    "name": "Five B2A Sub-Niches Where Autonomous Agents Win at Content Creation",
+    "description": "AI agent requests now equal 88 percent of human organic search, yet most AI content tools stop at draft, and the five B2A sub-niches that win share one trait: a closed loop from generation to publication to feedback.",
+    "inLanguage": "en",
+    "url": "https://growth.dante.id/growth/en/content/five-b2a-sub-niches-where-autonomous-agents-win-at-content-creation",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://growth.dante.id/growth/en/content/five-b2a-sub-niches-where-autonomous-agents-win-at-content-creation"
+    },
+    "datePublished": "2026-04-28T13:37:47.984Z",
+    "dateModified": "2026-04-28T13:37:47.984Z",
+    "author": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "keywords": "Sight AI",
+    "citation": [
+      {
+        "@type": "Quotation",
+        "text": "AI agent requests have reached 88% of human organic search activity.",
+        "about": "AI agent search has reached 88% of human organic search activity (April 2026)",
+        "description": "Single jaw-dropping data point that reframes the entire SEO/content debate. If true, every brand strategy built on human-first SERPs is already obsolete. Maps directly to the data anchor hook pattern.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "Distribution > generation: The bottleneck is no longer writing the content. It's connecting generation to publication, then to feedback, then to next generation — the closed loop. Most 'AI content tools' stop at draft.",
+        "about": "The bottleneck in AI content isn't generation — it's the closed loop to publication",
+        "description": "Contrarian to every AI content tool positioning in the market. Most tools stop at draft; the actual moat is the loop. Maps to named gap hook.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "Template-based programmatic SEO is dead — Google's Helpful Content Update killed variable-substitution pages. The new model: dedicated AI research agent per URL.",
+        "about": "Template-based programmatic SEO is dead — every URL needs its own research agent",
+        "description": "Direct contradiction of how 90% of programmatic SEO operators still work. Variable-substitution at scale is now a Google penalty. The new floor is one research agent per page.",
+        "keywords": [
+          "Sight AI"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "Brands that ignore the agent reader (no schema, no API docs, no structured data) churn agents instantly. 'If the docs are unclear, the agent churns immediately.'",
+        "about": "If your API docs are unclear, the agent churns immediately",
+        "description": "Reframes developer experience as agent experience. Most product teams still write docs for humans. The cost of bad docs just went from low conversion to instant churn from a non-human buyer.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "B2B companies spend $50K–$150K per human SDR. Autonomous SDR agents at $2K–$5K/month deliver 70–80% cost savings.",
+        "about": "Autonomous SDR agents at $2K–$5K/month replace $50K–$150K human SDRs",
+        "description": "Concrete brutal economic comparison with named price points. The 70-80% cost savings is the kind of number that lands in B2B founder decks.",
+        "keywords": []
+      }
+    ]
   }
 }
