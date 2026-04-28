@@ -649,5 +649,130 @@
         "keywords": []
       }
     ]
+  },
+  "growth/en/content/three-b2a-opportunities-hidden-in-yc-spring-2026-rfs": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Three B2A Opportunities Hidden in YC's Spring 2026 RFS",
+    "name": "Three B2A Opportunities Hidden in YC's Spring 2026 RFS",
+    "description": "YC's Spring 2026 wishlist names AI-Native Service Companies, SaaS Challengers, and Software for Agents as three separate themes, but they're three sides of the same B2A pyramid, and the founders who stack them get the operational moat that turned $285B of SaaS valuation into smoke in 48 hours.",
+    "inLanguage": "en",
+    "url": "https://growth.dante.id/growth/en/content/three-b2a-opportunities-hidden-in-yc-spring-2026-rfs",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://growth.dante.id/growth/en/content/three-b2a-opportunities-hidden-in-yc-spring-2026-rfs"
+    },
+    "datePublished": "2026-04-28T14:41:47.632Z",
+    "dateModified": "2026-04-28T14:41:47.632Z",
+    "author": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Dante Perea",
+      "url": "https://growth.dante.id",
+      "description": "Founder of unifounder.ai. Building agent-native publishing infrastructure for the Business-to-Agent economy. Previously shipping AI products at the intersection of multimodal models, retrieval, and developer tooling.",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://x.com/danteperea",
+        "https://github.com/dante-unifounder",
+        "https://unifounder.ai"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "unifounder.ai",
+        "url": "https://unifounder.ai"
+      }
+    },
+    "keywords": "Anthropic, Claude Cowork, Cloudflare, Google DeepMind, MCP, Microsoft, OpenAI, Y Combinator",
+    "citation": [
+      {
+        "@type": "Quotation",
+        "text": "In February 2026, approximately $285 billion vanished from SaaS company valuations in roughly 48 hours. Anthropic launched Claude Cowork — and the market concluded that AI agents could replace entire categories of knowledge work that SaaS companies had been charging per seat to support.",
+        "about": "$285B vanished from SaaS valuations in 48 hours when Anthropic launched Claude Cowork",
+        "description": "A single concrete number that reframes the entire 'is SaaS dying' debate. Specific event (Claude Cowork), specific dollar figure, specific time window. Maps directly to the data-anchor hook pattern.",
+        "keywords": [
+          "Anthropic",
+          "Claude Cowork"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "Y Combinator's Spring 2026 Request for Startups buries three distinct B2A opportunities under three different headers... agents doing the work (services), agents replacing the tools (SaaS challengers), and agents using software directly (software for agents).",
+        "about": "YC's three Spring 2026 RFS themes are three sides of the same B2A pyramid",
+        "description": "The unifying insight nobody else is naming. Each YC tweet looks like a separate opportunity; read together, they describe a stack: agents doing work (services), agents replacing tools (SaaS challengers), agents as users (software for agents). Maps to the named-gap hook.",
+        "keywords": [
+          "Y Combinator"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "AI agents flatten moats because they don't care about the interface — an agent can navigate a clumsy UI just as easily as a sleek one, or bypass the UI entirely via API.",
+        "about": "AI agents flatten interface moats — UX differentiation only matters for human users",
+        "description": "Direct contradiction of the entire SaaS playbook. If your moat was 'better UX', the agent user has no aesthetic preference and bypasses your UI entirely. Cuts to the heart of what's left to defend.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "The total spend on services is many times larger than the spend on software, and a lot of those services are already outsourced, which makes them easier to replace with an AI-native product. We're excited about companies that don't sell a tool to help you do the work: they just do the work.",
+        "about": "Services TAM is 5–20x larger than software TAM, and most founders aim at the smaller market",
+        "description": "YC's actual framing in plain language. Most founders default to building tools because they're engineers — but the outsourced-services market is structurally larger and easier to replace because it's already commoditized.",
+        "keywords": [
+          "Y Combinator"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "The cost of AI inference has been dropping roughly 10x per year, with tasks that cost $10 in AI compute in 2024 costing $0.10 in 2026.",
+        "about": "AI inference cost dropped 10x per year — tasks at $10 in 2024 cost $0.10 in 2026",
+        "description": "Hard cost-curve data point that explains why the SaaS challenger thesis holds. The math behind why a 10–100x cost collapse on software production is real, not marketing.",
+        "keywords": []
+      },
+      {
+        "@type": "Quotation",
+        "text": "The next trillion users on the internet won't be people. They'll be AI agents, and they're already doing real work on top of software that was designed for humans clicking buttons. Every major category of software needs to be rebuilt for agents.",
+        "about": "The next trillion users won't be human — every software category needs to be rebuilt for agents",
+        "description": "YC's most provocative tweet. Frames the agent economy as a 'trillion users' opportunity that's invisible if you only count human DAUs. Forces every product team to ask: am I agent-readable?",
+        "keywords": [
+          "Y Combinator"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "The Model Context Protocol went from zero to 97 million monthly SDK downloads across Python and TypeScript in its first year with 10,000+ active MCP servers, and OpenAI, Google DeepMind, Microsoft, and Cloudflare all adopted it.",
+        "about": "MCP went from zero to 97M monthly SDK downloads in one year",
+        "description": "Adoption velocity number that proves software-for-agents is already an active category, not a future bet. Specific, verifiable, and contradicts the 'MCP is hype' take.",
+        "keywords": [
+          "MCP",
+          "OpenAI",
+          "Google DeepMind",
+          "Microsoft",
+          "Cloudflare"
+        ]
+      },
+      {
+        "@type": "Quotation",
+        "text": "The best AI-native companies they're seeing have figured out something most haven't: they've made their entire company queryable.",
+        "about": "Make your entire company queryable — the operational moat YC sees in top AI-native companies",
+        "description": "YC explicitly named this as the pattern most founders haven't figured out. Internal MCP servers exposing company state to agents is what separates 'AI-using' from 'AI-native.'",
+        "keywords": [
+          "Y Combinator"
+        ]
+      }
+    ]
   }
 }
